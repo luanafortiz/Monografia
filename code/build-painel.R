@@ -56,9 +56,24 @@ painel7 = painel7 %>% select(all_of(variaveis_escolhidas))
 # filtrar mulheres em trimestre 1 2019
 m_1tri19 = painel7 %>% dplyr::filter(V2007 == 2 & Ano == 2019 & Trimestre == 1) 
 
-# mulheres ocupadas 1º tri 2019
-m_1tri19_ocupadas = m_1tri19 %>% mutate(ocupadas = ifelse(VD4002 == 1, 1, 0)) %>% 
-  ungroup() %>% summarise(sum(ocupadas, na.rm = T)) %>% as.integer()
+    # só mulheres ocupadas 1º tri 2019
+    m_1tri19_ocupadas = m_1tri19 %>% mutate(ocupadas = ifelse(VD4002 == 1, 1, 0)) %>% 
+      ungroup() %>% summarise(sum(ocupadas, na.rm = T)) %>% as.integer()
 
+    # dessas mulheres, pretas 1º tri 2019
+    mp_1tri19_ocupadas = m_1tri19 %>% mutate(ocupadas_p = ifelse(VD4002 == 1 & V2010 == 2, 1, 0)) %>% 
+      ungroup() %>% summarise(sum(ocupadas_p, na.rm = T)) %>% as.integer()
+    
+    # dessas mulheres, brancas 1º tri 2019
+    mb_1tri19_ocupadas = m_1tri19 %>% mutate(ocupadas_b = ifelse(VD4002 == 1 & V2010 == 1, 1, 0)) %>% 
+      ungroup() %>% summarise(sum(ocupadas_b, na.rm = T)) %>% as.integer()
  
+    #amarelas, pardas...
+    
+    
+# filtrar homens em trimestre 1 2019
+h_1tri19 = painel7 %>% dplyr::filter(V2007 == 1 & Ano == 2019 & Trimestre == 1) 
 
+    # só homens ocupados 1º tri 2019
+    h_1tri19_ocupadas = h_1tri19 %>% mutate(h_ocupadas = ifelse(VD4002 == 1, 1, 0)) %>% 
+      ungroup() %>% summarise(sum(h_ocupadas, na.rm = T)) %>% as.integer()
