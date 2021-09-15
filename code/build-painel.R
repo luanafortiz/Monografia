@@ -54,4 +54,11 @@ variaveis_escolhidas = c("Ano", "Trimestre", "UF", "Capital",
 painel7 = painel7 %>% select(all_of(variaveis_escolhidas))
 
 # filtrar mulheres em trimestre 1 2019
-m_1tri19 = painel7 %>% dplyr::filter(V2007 == 2)
+m_1tri19 = painel7 %>% dplyr::filter(V2007 == 2 & Ano == 2019 & Trimestre == 1) 
+
+# mulheres ocupadas 1º tri 2019
+m_1tri19_ocupadas = m_1tri19 %>% mutate(ocupadas = ifelse(VD4002 == 1, 1, 0)) %>% 
+  ungroup() %>% summarise(sum(ocupadas, na.rm = T)) %>% as.integer()
+
+ 
+
