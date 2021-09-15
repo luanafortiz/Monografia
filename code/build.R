@@ -2,7 +2,6 @@
 
 #pacotes
 library(tidyverse)
-install.packages("PNADcIBGE")
 library(PNADcIBGE)
 library(survey)
 
@@ -44,7 +43,7 @@ variaveis_escolhidas = c("Ano", "Trimestre", "UF", "Capital",
                          "VD4032", # trabalho principal - horas efetivamente trabalhadas por semana
                          "VD4033", # trabalho secundário - horas habitualmente trabalhadas por semana
                          "VD4034", # trabalho secundário - horas efetivamente trabalhadas por semana
-                         "VD4035", # todos os trabalhos - horas efetivamente trabalhadas por semana
+                         "VD4035" # todos os trabalhos - horas efetivamente trabalhadas por semana
                          )
 
 xxx = PNADcIBGE::read_pnadc(microdata = microdata_file,

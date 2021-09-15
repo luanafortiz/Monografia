@@ -50,4 +50,8 @@ variaveis_escolhidas = c("Ano", "Trimestre", "UF", "Capital",
                          "VD4035", # todos os trabalhos - horas efetivamente trabalhadas por semana
                          "idind")
 
-painel7 = painel7 %>% select(variaveis_escolhidas)
+# selecionando as variáveis importantes
+painel7 = painel7 %>% select(all_of(variaveis_escolhidas))
+
+# filtrar mulheres em trimestre 1 2019
+m_1tri19 = painel7 %>% dplyr::filter(V2007 == 2)
