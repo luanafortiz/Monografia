@@ -3,3 +3,4 @@
 .Rhistory
 .Rproj.user/shared/notebooks/patch-chunk-names
 .Rproj.user/
+*.dta
