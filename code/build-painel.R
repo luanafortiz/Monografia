@@ -52,18 +52,60 @@ painel7 = painel7 %>% select(all_of(variaveis_escolhidas))
 trimestres = painel7 %>% dplyr::filter(Ano == 2019 & (Trimestre == 1 | Trimestre == 2)) 
 
     # matriz para mulheres
+trimestres = trimestres %>% filter(V2007 == 1)
 
           # ocupada x ocupada 
           uu = trimestres %>% group_by(idind) %>% arrange(idind, Ano, Trimestre) %>% 
             mutate(xxx = ifelse(VD4002 == 1 & Trimestre == 1, 1, 0),                # se estiver ocupada no 1 tri
                    xxx2 = ifelse(VD4002 == 1 & Trimestre == 2, 1, 0),
-                   zzz = ifelse(VD4002 == 1 & Trimestre == 2 & xxx2 == 1, 1, 0),    # se ela continuou ocupada
+                   zzz = ifelse(VD4002 == 1 & Trimestre == 2 & lag(xxx) == 1, 1, 0),    # se ela continuou ocupada
                    kkk = lag(V1028)) %>%                                           # pega o peso dessa pessoa no periodo 1
             ungroup() %>% 
             summarise(uu = ((sum(zzz * kkk, na.rm = T))/(sum(xxx * V1028, na.rm = T)))) 
     
-    
+          # desocupada x desocupada 
+          dd = trimestres %>% group_by(idind) %>% arrange(idind, Ano, Trimestre) %>% 
+            mutate(xxx = ifelse(VD4002 == 2 & Trimestre == 1, 1, 0),                # se estiver desocupada no 1 tri
+                   xxx2 = ifelse(VD4002 == 2 & Trimestre == 2, 1, 0),
+                   zzz = ifelse(VD4002 == 2 & Trimestre == 2 & lag(xxx) == 1, 1, 0),    # se ela continuou desocupada
+                   kkk = lag(V1028)) %>%                                           # pega o peso dessa pessoa no periodo 1
+            ungroup() %>% 
+            summarise(dd = ((sum(zzz * kkk, na.rm = T))/(sum(xxx * V1028, na.rm = T)))) 
+          
+          # ocupada x desocupada 
+          ud = trimestres %>% group_by(idind) %>% arrange(idind, Ano, Trimestre) %>% 
+            mutate(xxx = ifelse(VD4002 == 1 & Trimestre == 1, 1, 0),                # 
+                   xxx2 = ifelse(VD4002 == 2 & Trimestre == 2, 1, 0),
+                   zzz = ifelse(VD4002 == 2 & Trimestre == 2 & lag(xxx) == 1, 1, 0),    # 
+                   kkk = lag(V1028)) %>%                                           # pega o peso dessa pessoa no periodo 1
+            ungroup() %>% 
+            summarise(ud = ((sum(zzz * kkk, na.rm = T))/(sum(xxx * V1028, na.rm = T)))) 
+          
+          # desocupada x ocupada 
+          du = trimestres %>% group_by(idind) %>% arrange(idind, Ano, Trimestre) %>% 
+            mutate(xxx = ifelse(VD4002 == 2 & Trimestre == 1, 1, 0),                # 
+                   xxx2 = ifelse(VD4002 == 1 & Trimestre == 2, 1, 0),
+                   zzz = ifelse(VD4002 == 1 & Trimestre == 2 & lag(xxx) == 1, 1, 0),    # 
+                   kkk = lag(V1028)) %>%                                           # pega o peso dessa pessoa no periodo 1
+            ungroup() %>% 
+            summarise(du = ((sum(zzz * kkk, na.rm = T))/(sum(xxx * V1028, na.rm = T)))) 
+          
 
+resultados = bind_rows(dd, ud, du, uu) %>% summarize(dd = mean(dd, na.rm = T), ud = mean(ud, na.rm = T), du = mean(du, na.rm = T), uu = mean(uu, na.rm = T)) %>% 
+  mutate(quarter = 1, year = 2019) 
+
+write.csv(resultados, file = "input/transicao_csv/transicao_2019_1.csv")
+
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
     # dessas mulheres, pretas 1º tri 2019
     mp_1tri19_ocupadas = m_1tri19 %>% mutate(ocupadas_p = ifelse(VD4002 == 1 & V2010 == 2, 1, 0)) %>% 
       ungroup() %>% summarise(sum(ocupadas_p, na.rm = T)) %>% as.integer()

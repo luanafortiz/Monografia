@@ -1,0 +1,50 @@
+geradora_magica_matriz_transicao = function(ano = 2019, tri0 = 1, tri1 = 2, painel = painel7) {
+  
+  trimestres = painel %>% dplyr::filter(Ano == ano & (Trimestre == tri0 | Trimestre == tri1)) 
+  
+  # matriz para mulheres
+  trimestres = trimestres %>% filter(V2007 == 1)
+  
+  # ocupada x ocupada 
+  uu = trimestres %>% group_by(idind) %>% arrange(idind, Ano, Trimestre) %>% 
+    mutate(xxx = ifelse(VD4002 == 1 & Trimestre == tri0, 1, 0),                # se estiver ocupada no 1 tri
+           xxx2 = ifelse(VD4002 == 1 & Trimestre == tri1, 1, 0),
+           zzz = ifelse(VD4002 == 1 & Trimestre == tri1 & lag(xxx) == 1, 1, 0),    # se ela continuou ocupada
+           kkk = lag(V1028)) %>%                                           # pega o peso dessa pessoa no periodo 1
+    ungroup() %>% 
+    summarise(uu = ((sum(zzz * kkk, na.rm = T))/(sum(xxx * V1028, na.rm = T)))) 
+  
+  # desocupada x desocupada 
+  dd = trimestres %>% group_by(idind) %>% arrange(idind, Ano, Trimestre) %>% 
+    mutate(xxx = ifelse(VD4002 == 2 & Trimestre == tri0, 1, 0),                # se estiver desocupada no 1 tri
+           xxx2 = ifelse(VD4002 == 2 & Trimestre == tri1, 1, 0),
+           zzz = ifelse(VD4002 == 2 & Trimestre == tri1 & lag(xxx) == 1, 1, 0),    # se ela continuou desocupada
+           kkk = lag(V1028)) %>%                                           # pega o peso dessa pessoa no periodo 1
+    ungroup() %>% 
+    summarise(dd = ((sum(zzz * kkk, na.rm = T))/(sum(xxx * V1028, na.rm = T)))) 
+  
+  # ocupada x desocupada 
+  ud = trimestres %>% group_by(idind) %>% arrange(idind, Ano, Trimestre) %>% 
+    mutate(xxx = ifelse(VD4002 == 1 & Trimestre == tri0, 1, 0),                # 
+           xxx2 = ifelse(VD4002 == 2 & Trimestre == tri1, 1, 0),
+           zzz = ifelse(VD4002 == 2 & Trimestre == tri1 & lag(xxx) == 1, 1, 0),    # 
+           kkk = lag(V1028)) %>%                                           # pega o peso dessa pessoa no periodo 1
+    ungroup() %>% 
+    summarise(ud = ((sum(zzz * kkk, na.rm = T))/(sum(xxx * V1028, na.rm = T)))) 
+  
+  # desocupada x ocupada 
+  du = trimestres %>% group_by(idind) %>% arrange(idind, Ano, Trimestre) %>% 
+    mutate(xxx = ifelse(VD4002 == 2 & Trimestre == tri0, 1, 0),                # 
+           xxx2 = ifelse(VD4002 == 1 & Trimestre == tri1, 1, 0),
+           zzz = ifelse(VD4002 == 1 & Trimestre == tri1 & lag(xxx) == 1, 1, 0),    # 
+           kkk = lag(V1028)) %>%                                           # pega o peso dessa pessoa no periodo 1
+    ungroup() %>% 
+    summarise(du = ((sum(zzz * kkk, na.rm = T))/(sum(xxx * V1028, na.rm = T)))) 
+  
+  
+  resultados = bind_rows(dd, ud, du, uu) %>% summarize(dd = mean(dd, na.rm = T), ud = mean(ud, na.rm = T), du = mean(du, na.rm = T), uu = mean(uu, na.rm = T)) %>% 
+    mutate(quarter = tri0, year = ano) 
+  
+  write.csv(resultados, file = paste0("input/transicao_csv/transicao_", ano, "_", tri0, ".csv"))
+}
+
