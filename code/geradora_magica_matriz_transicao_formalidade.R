@@ -10,15 +10,17 @@ geradora_magica_matriz_transicao_informalidade = function(ano = 2019, tri0 = 1, 
   # filtros de caracteristicas que queremos (mulheres, homens, raça e educação)
   trimestres = trimestres %>% filter(V2007 == 1)
   
+  #criar coluna de contribuinte nos casos de ocupação com 2 possibilidades
+  trimestres = trimestres %>%  mutate(contribuinte = ifelse((VD4009 == 8 | VD4009 == 9) & VD4012 == 1, 1, 0))
   
   # ocupada formal x ocupada formal 
   ufuf = trimestres %>% group_by(idind) %>% arrange(idind, Ano, Trimestre) %>% 
-    mutate(xxx = ifelse(VD4002 == 1 & (VD4009 == 1) & Trimestre == 1, 1, 0),                # se estiver ocupada no 1 tri
-           xxx2 = ifelse(VD4002 == 1 & Trimestre == 2, 1, 0),
-           zzz = ifelse(VD4002 == 1 & Trimestre == 2 & lag(xxx) == 1, 1, 0),    # se ela continuou ocupada
+    mutate(xxx = ifelse(VD4002 == 1 & (VD4009 == 1 | VD4009 == 3| VD4009 == 5 | VD4009 == 7 | contribuinte == 1) & Trimestre == 1, 1, 0),                # se estiver ocupada no 1 tri
+           xxx2 = ifelse(VD4002 == 1 & (VD4009 == 1 | VD4009 == 3| VD4009 == 5 | VD4009 == 7 | contribuinte == 1) & Trimestre == 2, 1, 0),
+           zzz = ifelse(VD4002 == 1 & (VD4009 == 1 | VD4009 == 3| VD4009 == 5 | VD4009 == 7 | contribuinte == 1) & Trimestre == 2 & lag(xxx) == 1, 1, 0),    # se ela continuou ocupada
            kkk = lag(V1028)) %>%                                           # pega o peso dessa pessoa no periodo 1
     ungroup() %>% 
-    summarise(uu = ((sum(zzz * kkk, na.rm = T))/(sum(xxx * V1028, na.rm = T)))) 
+    summarise(ufuf = ((sum(zzz * kkk, na.rm = T))/(sum(xxx * V1028, na.rm = T)))) 
   
   # desocupada x desocupada 
   dd = trimestres %>% group_by(idind) %>% arrange(idind, Ano, Trimestre) %>% 
