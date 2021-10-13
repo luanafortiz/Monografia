@@ -4,3 +4,8 @@
 .Rproj.user/shared/notebooks/patch-chunk-names
 .Rproj.user/
 *.dta
+*.rds
+*.xls
+*.pdf
+.RData
+.RData
