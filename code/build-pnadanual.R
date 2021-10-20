@@ -72,6 +72,8 @@ pnadc2019anual = pnadc2019anual %>%
 
 
 
+                            # trabalho 
+
 # horas com trabalho 
 total_horas_trabalho = pnadc2019anual %>% 
   filter(VD4002 == 1) %>% 
@@ -191,6 +193,9 @@ total_horas_trabalho_homens_nao_brancos = pnadc2019anual %>%
   saveRDS(file = "tmp/horas_trabalho_homens_nao_brancos_2019.rds")
 
 
+                              # formalidade
+
+
 # horas com trabalho homens formal
 total_horas_trabalho_homens = pnadc2019anual %>% 
   filter(VD4002 == 1, V2007 == 1, dummy_formalidade == 1) %>% 
@@ -215,6 +220,11 @@ total_horas_trabalho_homens = pnadc2019anual %>%
             horas_trabalho = mean(horas_trabalho),
             media_horas_trabalho = mean(media_horas_trabalho)) %>% 
   saveRDS(file = "tmp/horas_trabalho_homens_informal_2019.rds")
+
+                                      #
+
+
+                              # cuidado e afazeres 
 
 
 # horas cuidado e afazeres
@@ -268,6 +278,7 @@ total_horas_afazeres_mulheres_brancas = pnadc2019anual %>%
             media_horas_afazeres = mean(media_horas_afazeres)) %>% 
   saveRDS(file = "tmp/horas_afazeres_mulheres_nao_brancas_2019.rds")
 
+                                      # formalidade
 
 # horas cuidado e afazeres mulheres formal
 total_horas_afazeres_mulheres = pnadc2019anual %>% 
@@ -294,7 +305,7 @@ total_horas_afazeres_mulheres = pnadc2019anual %>%
             media_horas_afazeres = mean(media_horas_afazeres)) %>% 
   saveRDS(file = "tmp/horas_afazeres_mulheres_informal_2019.rds")
 
-
+                                          #
 
 # horas cuidado e afazeres homens
 total_horas_afazeres_homens = pnadc2019anual %>% 
@@ -335,6 +346,7 @@ total_horas_afazeres_homens = pnadc2019anual %>%
             media_horas_afazeres = mean(media_horas_afazeres)) %>% 
   saveRDS(file = "tmp/horas_afazeres_homens_nao_brancos_2019.rds")
 
+                                # formalidade
 
 # horas cuidado e afazeres homens formal
 total_horas_afazeres_homens = pnadc2019anual %>% 
@@ -361,6 +373,185 @@ total_horas_afazeres_homens = pnadc2019anual %>%
             horas_afazeres = mean(horas_afazeres),
             media_horas_afazeres = mean(media_horas_afazeres)) %>% 
   saveRDS(file = "tmp/horas_afazeres_homens_informal_2019.rds")
+
+                                        #
+                                  
+
+                               # faixa etaria da pessoa cuidada 
+
+# horas com trabalho mulheres com crianças de 0 a 14 anos
+total_horas_trabalho_mulheres = pnadc2019anual %>% 
+  filter(VD4002 == 1, V2007 == 2, (VD4040 == 1 | VD4041 == 1)) %>% 
+  group_by(UF) %>% 
+  mutate(pessoas_ocupadas = sum(V1032), 
+         horas_trabalho = sum(V4039C*V1032),
+         media_horas_trabalho = horas_trabalho/pessoas_ocupadas) %>% 
+  summarise(pessoas_ocupadas = mean(pessoas_ocupadas),
+            horas_trabalho = mean(horas_trabalho),
+            media_horas_trabalho = mean(media_horas_trabalho)) %>% 
+  saveRDS(file = "tmp/horas_trabalho_mulheres_0_14_2019.rds")
+
+
+# horas com trabalho mulheres com crianças de 15 a 59 anos
+total_horas_trabalho_mulheres = pnadc2019anual %>% 
+  filter(VD4002 == 1, V2007 == 2, VD4042 == 1) %>% 
+  group_by(UF) %>% 
+  mutate(pessoas_ocupadas = sum(V1032), 
+         horas_trabalho = sum(V4039C*V1032),
+         media_horas_trabalho = horas_trabalho/pessoas_ocupadas) %>% 
+  summarise(pessoas_ocupadas = mean(pessoas_ocupadas),
+            horas_trabalho = mean(horas_trabalho),
+            media_horas_trabalho = mean(media_horas_trabalho)) %>% 
+  saveRDS(file = "tmp/horas_trabalho_mulheres_15_59_2019.rds")
+
+
+# horas com trabalho mulheres com crianças de idosos
+total_horas_trabalho_mulheres = pnadc2019anual %>% 
+  filter(VD4002 == 1, V2007 == 2, VD4043 == 1) %>% 
+  group_by(UF) %>% 
+  mutate(pessoas_ocupadas = sum(V1032), 
+         horas_trabalho = sum(V4039C*V1032),
+         media_horas_trabalho = horas_trabalho/pessoas_ocupadas) %>% 
+  summarise(pessoas_ocupadas = mean(pessoas_ocupadas),
+            horas_trabalho = mean(horas_trabalho),
+            media_horas_trabalho = mean(media_horas_trabalho)) %>% 
+  saveRDS(file = "tmp/horas_trabalho_mulheres_60_2019.rds")
+
+
+# horas com trabalho homens com crianças de 0 a 14 anos
+total_horas_trabalho_homens = pnadc2019anual %>% 
+  filter(VD4002 == 1, V2007 == 1, (VD4040 == 1 | VD4041 == 1)) %>% 
+  group_by(UF) %>% 
+  mutate(pessoas_ocupadas = sum(V1032), 
+         horas_trabalho = sum(V4039C*V1032),
+         media_horas_trabalho = horas_trabalho/pessoas_ocupadas) %>% 
+  summarise(pessoas_ocupadas = mean(pessoas_ocupadas),
+            horas_trabalho = mean(horas_trabalho),
+            media_horas_trabalho = mean(media_horas_trabalho)) %>% 
+  saveRDS(file = "tmp/horas_trabalho_homens_0_14_2019.rds")
+
+
+# horas com trabalho homens com crianças de 15 a 59 anos
+total_horas_trabalho_homens = pnadc2019anual %>% 
+  filter(VD4002 == 1, V2007 == 1, VD4042 == 1) %>% 
+  group_by(UF) %>% 
+  mutate(pessoas_ocupadas = sum(V1032), 
+         horas_trabalho = sum(V4039C*V1032),
+         media_horas_trabalho = horas_trabalho/pessoas_ocupadas) %>% 
+  summarise(pessoas_ocupadas = mean(pessoas_ocupadas),
+            horas_trabalho = mean(horas_trabalho),
+            media_horas_trabalho = mean(media_horas_trabalho)) %>% 
+  saveRDS(file = "tmp/horas_trabalho_homens_15_59_2019.rds")
+
+
+# horas com trabalho homens com crianças de idosos
+total_horas_trabalho_homens = pnadc2019anual %>% 
+  filter(VD4002 == 1, V2007 == 1, VD4043 == 1) %>% 
+  group_by(UF) %>% 
+  mutate(pessoas_ocupadas = sum(V1032), 
+         horas_trabalho = sum(V4039C*V1032),
+         media_horas_trabalho = horas_trabalho/pessoas_ocupadas) %>% 
+  summarise(pessoas_ocupadas = mean(pessoas_ocupadas),
+            horas_trabalho = mean(horas_trabalho),
+            media_horas_trabalho = mean(media_horas_trabalho)) %>% 
+  saveRDS(file = "tmp/horas_trabalho_homens_60_2019.rds")
+
+
+
+# horas cuidado e afazeres mulheres de 0 a 14 anos
+total_horas_afazeres_mulheres = pnadc2019anual %>% 
+  filter(!is.na(V4121B), V2007 == 2, (VD4040 == 1 | VD4041 == 1)) %>% 
+  group_by(UF) %>% 
+  mutate(pessoas_afazeres = sum(V1032), 
+         horas_afazeres = sum(V4121B*V1032),
+         media_horas_afazeres = horas_afazeres/pessoas_afazeres) %>% 
+  summarise(pessoas_afazeres = mean(pessoas_afazeres),
+            horas_afazeres = mean(horas_afazeres),
+            media_horas_afazeres = mean(media_horas_afazeres)) %>% 
+  saveRDS(file = "tmp/horas_afazeres_mulheres_0_14_2019.rds")
+
+
+# horas cuidado e afazeres mulheres de 15 a 59
+total_horas_afazeres_mulheres = pnadc2019anual %>% 
+  filter(!is.na(V4121B), V2007 == 2, VD4042 == 1) %>% 
+  group_by(UF) %>% 
+  mutate(pessoas_afazeres = sum(V1032), 
+         horas_afazeres = sum(V4121B*V1032),
+         media_horas_afazeres = horas_afazeres/pessoas_afazeres) %>% 
+  summarise(pessoas_afazeres = mean(pessoas_afazeres),
+            horas_afazeres = mean(horas_afazeres),
+            media_horas_afazeres = mean(media_horas_afazeres)) %>% 
+  saveRDS(file = "tmp/horas_afazeres_mulheres_15_59_2019.rds")
+
+
+# horas cuidado e afazeres mulheres de idosos
+total_horas_afazeres_mulheres = pnadc2019anual %>% 
+  filter(!is.na(V4121B), V2007 == 2, VD4043 == 1) %>% 
+  group_by(UF) %>% 
+  mutate(pessoas_afazeres = sum(V1032), 
+         horas_afazeres = sum(V4121B*V1032),
+         media_horas_afazeres = horas_afazeres/pessoas_afazeres) %>% 
+  summarise(pessoas_afazeres = mean(pessoas_afazeres),
+            horas_afazeres = mean(horas_afazeres),
+            media_horas_afazeres = mean(media_horas_afazeres)) %>% 
+  saveRDS(file = "tmp/horas_afazeres_mulheres_60_2019.rds")
+
+
+
+# horas cuidado e afazeres homens de 0 a 14 anos
+total_horas_afazeres_homens = pnadc2019anual %>% 
+  filter(!is.na(V4121B), V2007 == 1, (VD4040 == 1 | VD4041 == 1)) %>% 
+  group_by(UF) %>% 
+  mutate(pessoas_afazeres = sum(V1032), 
+         horas_afazeres = sum(V4121B*V1032),
+         media_horas_afazeres = horas_afazeres/pessoas_afazeres) %>% 
+  summarise(pessoas_afazeres = mean(pessoas_afazeres),
+            horas_afazeres = mean(horas_afazeres),
+            media_horas_afazeres = mean(media_horas_afazeres)) %>% 
+  saveRDS(file = "tmp/horas_afazeres_homens_0_14_2019.rds")
+
+
+# horas cuidado e afazeres homens de 15 a 59
+total_horas_afazeres_homens = pnadc2019anual %>% 
+  filter(!is.na(V4121B), V2007 == 1, VD4042 == 1) %>% 
+  group_by(UF) %>% 
+  mutate(pessoas_afazeres = sum(V1032), 
+         horas_afazeres = sum(V4121B*V1032),
+         media_horas_afazeres = horas_afazeres/pessoas_afazeres) %>% 
+  summarise(pessoas_afazeres = mean(pessoas_afazeres),
+            horas_afazeres = mean(horas_afazeres),
+            media_horas_afazeres = mean(media_horas_afazeres)) %>% 
+  saveRDS(file = "tmp/horas_afazeres_homens_15_59_2019.rds")
+
+
+# horas cuidado e afazeres homens de idosos
+total_horas_afazeres_homens = pnadc2019anual %>% 
+  filter(!is.na(V4121B), V2007 == 1, VD4043 == 1) %>% 
+  group_by(UF) %>% 
+  mutate(pessoas_afazeres = sum(V1032), 
+         horas_afazeres = sum(V4121B*V1032),
+         media_horas_afazeres = horas_afazeres/pessoas_afazeres) %>% 
+  summarise(pessoas_afazeres = mean(pessoas_afazeres),
+            horas_afazeres = mean(horas_afazeres),
+            media_horas_afazeres = mean(media_horas_afazeres)) %>% 
+  saveRDS(file = "tmp/horas_afazeres_homens_60_2019.rds")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
