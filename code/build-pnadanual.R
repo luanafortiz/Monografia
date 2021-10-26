@@ -932,7 +932,7 @@ total_horas_trabalho_mulheres = pnadc2018anual %>%
   saveRDS(file = "tmp/horas_trabalho_mulheres_0_14_2018.rds")
 
 
-# horas com trabalho mulheres com crianças de 15 a 59 anos
+# horas com trabalho mulheres com de 15 a 59 anos
 total_horas_trabalho_mulheres = pnadc2018anual %>% 
   filter(VD4002 == 1, V2007 == 2, VD4042 == 1) %>% 
   group_by(UF) %>% 
@@ -1699,7 +1699,7 @@ total_horas_trabalho = pnadc2016anual %>%
   filter(VD4002 == 1) %>% 
   group_by(UF) %>% 
   mutate(pessoas_ocupadas = sum(V1032), 
-         horas_trabalho = sum(V4039C*V1032),
+         horas_trabalho = sum(V4039C*V1032, na.rm = T),
          media_horas_trabalho = horas_trabalho/pessoas_ocupadas) %>% 
   summarise(pessoas_ocupadas = mean(pessoas_ocupadas),
             horas_trabalho = mean(horas_trabalho),
@@ -1713,10 +1713,10 @@ total_horas_trabalho_mulheres = pnadc2016anual %>%
   filter(VD4002 == 1, V2007 == 2) %>% 
   group_by(UF) %>% 
   mutate(pessoas_ocupadas = sum(V1032), 
-         horas_trabalho = sum(V4039C*V1032),
+         horas_trabalho = sum(V4039C*V1032, na.rm = T),
          media_horas_trabalho = horas_trabalho/pessoas_ocupadas) %>% 
-  summarise(pessoas_ocupadas = mean(pessoas_ocupadas),
-            horas_trabalho = mean(horas_trabalho),
+  summarise(pessoas_ocupadas = mean(pessoas_ocupadas, na.rm = T),
+            horas_trabalho = mean(horas_trabalho, na.rm = T),
             media_horas_trabalho = mean(media_horas_trabalho)) %>% 
   saveRDS(file = "tmp/horas_trabalho_mulheres_2016.rds")
 
@@ -1726,7 +1726,7 @@ total_horas_trabalho_mulheres_brancas = pnadc2016anual %>%
   filter(VD4002 == 1, V2007 == 2, V2010 == 1) %>% 
   group_by(UF) %>% 
   mutate(pessoas_ocupadas = sum(V1032), 
-         horas_trabalho = sum(V4039C*V1032),
+         horas_trabalho = sum(V4039C*V1032, na.rm = T),
          media_horas_trabalho = horas_trabalho/pessoas_ocupadas) %>% 
   summarise(pessoas_ocupadas = mean(pessoas_ocupadas),
             horas_trabalho = mean(horas_trabalho),
@@ -1739,7 +1739,7 @@ total_horas_trabalho_mulheres_nao_brancas = pnadc2016anual %>%
   filter(VD4002 == 1, V2007 == 2, !V2010 == 1) %>% 
   group_by(UF) %>% 
   mutate(pessoas_ocupadas = sum(V1032), 
-         horas_trabalho = sum(V4039C*V1032),
+         horas_trabalho = sum(V4039C*V1032, na.rm = T),
          media_horas_trabalho = horas_trabalho/pessoas_ocupadas) %>% 
   summarise(pessoas_ocupadas = mean(pessoas_ocupadas),
             horas_trabalho = mean(horas_trabalho),
@@ -1753,7 +1753,7 @@ total_horas_trabalho_mulheres = pnadc2016anual %>%
   filter(VD4002 == 1, V2007 == 2, dummy_formalidade == 1) %>% 
   group_by(UF) %>% 
   mutate(pessoas_ocupadas = sum(V1032), 
-         horas_trabalho = sum(V4039C*V1032),
+         horas_trabalho = sum(V4039C*V1032, na.rm = T),
          media_horas_trabalho = horas_trabalho/pessoas_ocupadas) %>% 
   summarise(pessoas_ocupadas = mean(pessoas_ocupadas),
             horas_trabalho = mean(horas_trabalho),
@@ -1766,7 +1766,7 @@ total_horas_trabalho_mulheres = pnadc2016anual %>%
   filter(VD4002 == 1, V2007 == 2, dummy_formalidade == 2) %>% 
   group_by(UF) %>% 
   mutate(pessoas_ocupadas = sum(V1032), 
-         horas_trabalho = sum(V4039C*V1032),
+         horas_trabalho = sum(V4039C*V1032, na.rm = T),
          media_horas_trabalho = horas_trabalho/pessoas_ocupadas) %>% 
   summarise(pessoas_ocupadas = mean(pessoas_ocupadas),
             horas_trabalho = mean(horas_trabalho),
@@ -1779,7 +1779,7 @@ total_horas_trabalho_homens = pnadc2016anual %>%
   filter(VD4002 == 1, V2007 == 1) %>% 
   group_by(UF) %>% 
   mutate(pessoas_ocupadas = sum(V1032), 
-         horas_trabalho = sum(V4039C*V1032),
+         horas_trabalho = sum(V4039C*V1032, na.rm = T),
          media_horas_trabalho = horas_trabalho/pessoas_ocupadas) %>% 
   summarise(pessoas_ocupadas = mean(pessoas_ocupadas),
             horas_trabalho = mean(horas_trabalho),
@@ -1792,7 +1792,7 @@ total_horas_trabalho_homens_brancos = pnadc2016anual %>%
   filter(VD4002 == 1, V2007 == 1, V2010 == 1) %>% 
   group_by(UF) %>% 
   mutate(pessoas_ocupadas = sum(V1032), 
-         horas_trabalho = sum(V4039C*V1032),
+         horas_trabalho = sum(V4039C*V1032, na.rm = T),
          media_horas_trabalho = horas_trabalho/pessoas_ocupadas) %>% 
   summarise(pessoas_ocupadas = mean(pessoas_ocupadas),
             horas_trabalho = mean(horas_trabalho),
@@ -1805,7 +1805,7 @@ total_horas_trabalho_homens_nao_brancos = pnadc2016anual %>%
   filter(VD4002 == 1, V2007 == 1, !V2010 == 1) %>% 
   group_by(UF) %>% 
   mutate(pessoas_ocupadas = sum(V1032), 
-         horas_trabalho = sum(V4039C*V1032),
+         horas_trabalho = sum(V4039C*V1032, na.rm = T),
          media_horas_trabalho = horas_trabalho/pessoas_ocupadas) %>% 
   summarise(pessoas_ocupadas = mean(pessoas_ocupadas),
             horas_trabalho = mean(horas_trabalho),
@@ -1821,7 +1821,7 @@ total_horas_trabalho_homens = pnadc2016anual %>%
   filter(VD4002 == 1, V2007 == 1, dummy_formalidade == 1) %>% 
   group_by(UF) %>% 
   mutate(pessoas_ocupadas = sum(V1032), 
-         horas_trabalho = sum(V4039C*V1032),
+         horas_trabalho = sum(V4039C*V1032, na.rm = T),
          media_horas_trabalho = horas_trabalho/pessoas_ocupadas) %>% 
   summarise(pessoas_ocupadas = mean(pessoas_ocupadas),
             horas_trabalho = mean(horas_trabalho),
@@ -1834,7 +1834,7 @@ total_horas_trabalho_homens = pnadc2016anual %>%
   filter(VD4002 == 1, V2007 == 1, dummy_formalidade == 2) %>% 
   group_by(UF) %>% 
   mutate(pessoas_ocupadas = sum(V1032), 
-         horas_trabalho = sum(V4039C*V1032),
+         horas_trabalho = sum(V4039C*V1032, na.rm = T),
          media_horas_trabalho = horas_trabalho/pessoas_ocupadas) %>% 
   summarise(pessoas_ocupadas = mean(pessoas_ocupadas),
             horas_trabalho = mean(horas_trabalho),
@@ -2005,7 +2005,7 @@ total_horas_trabalho_mulheres = pnadc2016anual %>%
   filter(VD4002 == 1, V2007 == 2, (VD4040 == 1 | VD4041 == 1)) %>% 
   group_by(UF) %>% 
   mutate(pessoas_ocupadas = sum(V1032), 
-         horas_trabalho = sum(V4039C*V1032),
+         horas_trabalho = sum(V4039C*V1032, na.rm = T),
          media_horas_trabalho = horas_trabalho/pessoas_ocupadas) %>% 
   summarise(pessoas_ocupadas = mean(pessoas_ocupadas),
             horas_trabalho = mean(horas_trabalho),
@@ -2018,7 +2018,7 @@ total_horas_trabalho_mulheres = pnadc2016anual %>%
   filter(VD4002 == 1, V2007 == 2, VD4042 == 1) %>% 
   group_by(UF) %>% 
   mutate(pessoas_ocupadas = sum(V1032), 
-         horas_trabalho = sum(V4039C*V1032),
+         horas_trabalho = sum(V4039C*V1032, na.rm = T),
          media_horas_trabalho = horas_trabalho/pessoas_ocupadas) %>% 
   summarise(pessoas_ocupadas = mean(pessoas_ocupadas),
             horas_trabalho = mean(horas_trabalho),
@@ -2031,7 +2031,7 @@ total_horas_trabalho_mulheres = pnadc2016anual %>%
   filter(VD4002 == 1, V2007 == 2, VD4043 == 1) %>% 
   group_by(UF) %>% 
   mutate(pessoas_ocupadas = sum(V1032), 
-         horas_trabalho = sum(V4039C*V1032),
+         horas_trabalho = sum(V4039C*V1032, na.rm = T),
          media_horas_trabalho = horas_trabalho/pessoas_ocupadas) %>% 
   summarise(pessoas_ocupadas = mean(pessoas_ocupadas),
             horas_trabalho = mean(horas_trabalho),
@@ -2044,7 +2044,7 @@ total_horas_trabalho_homens = pnadc2016anual %>%
   filter(VD4002 == 1, V2007 == 1, (VD4040 == 1 | VD4041 == 1)) %>% 
   group_by(UF) %>% 
   mutate(pessoas_ocupadas = sum(V1032), 
-         horas_trabalho = sum(V4039C*V1032),
+         horas_trabalho = sum(V4039C*V1032, na.rm = T),
          media_horas_trabalho = horas_trabalho/pessoas_ocupadas) %>% 
   summarise(pessoas_ocupadas = mean(pessoas_ocupadas),
             horas_trabalho = mean(horas_trabalho),
@@ -2057,7 +2057,7 @@ total_horas_trabalho_homens = pnadc2016anual %>%
   filter(VD4002 == 1, V2007 == 1, VD4042 == 1) %>% 
   group_by(UF) %>% 
   mutate(pessoas_ocupadas = sum(V1032), 
-         horas_trabalho = sum(V4039C*V1032),
+         horas_trabalho = sum(V4039C*V1032, na.rm = T),
          media_horas_trabalho = horas_trabalho/pessoas_ocupadas) %>% 
   summarise(pessoas_ocupadas = mean(pessoas_ocupadas),
             horas_trabalho = mean(horas_trabalho),
@@ -2070,7 +2070,7 @@ total_horas_trabalho_homens = pnadc2016anual %>%
   filter(VD4002 == 1, V2007 == 1, VD4043 == 1) %>% 
   group_by(UF) %>% 
   mutate(pessoas_ocupadas = sum(V1032), 
-         horas_trabalho = sum(V4039C*V1032),
+         horas_trabalho = sum(V4039C*V1032, na.rm = T),
          media_horas_trabalho = horas_trabalho/pessoas_ocupadas) %>% 
   summarise(pessoas_ocupadas = mean(pessoas_ocupadas),
             horas_trabalho = mean(horas_trabalho),
