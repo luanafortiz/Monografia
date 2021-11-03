@@ -516,7 +516,255 @@ base = rbind(base1, base2)
 #########################################################################################    
     
   
+  ############ afazeres em 0 a 14 anos
+  
+  # 2019
+  afazeres_homens_14_2019 = readRDS(file = "tmp/horas_afazeres_homens_0_14_2019.rds") %>% 
+    mutate(id = "Homens", ano = 2019, tipo = "afazeres", faixa = "0 a 14 anos")
+  
+  afazeres_mulheres_14_2019 = readRDS(file = "tmp/horas_afazeres_mulheres_0_14_2019.rds") %>% 
+    mutate(id = "Mulheres", ano = 2019, tipo = "afazeres", faixa = "0 a 14 anos")
+
+  # 2018
+  afazeres_homens_14_2018 = readRDS(file = "tmp/horas_afazeres_homens_0_14_2018.rds") %>% 
+    mutate(id = "Homens", ano = 2018, tipo = "afazeres", faixa = "0 a 14 anos")
+  
+  afazeres_mulheres_14_2018 = readRDS(file = "tmp/horas_afazeres_mulheres_0_14_2018.rds") %>% 
+    mutate(id = "Mulheres", ano = 2018, tipo = "afazeres", faixa = "0 a 14 anos")  
+  
+  # 2017
+  afazeres_homens_14_2017 = readRDS(file = "tmp/horas_afazeres_homens_0_14_2017.rds") %>% 
+    mutate(id = "Homens", ano = 2017, tipo = "afazeres", faixa = "0 a 14 anos")
+  
+  afazeres_mulheres_14_2017 = readRDS(file = "tmp/horas_afazeres_mulheres_0_14_2017.rds") %>% 
+    mutate(id = "Mulheres", ano = 2017, tipo = "afazeres", faixa = "0 a 14 anos")  
+  
+  # 2016
+  afazeres_homens_14_2016 = readRDS(file = "tmp/horas_afazeres_homens_0_14_2016.rds") %>% 
+    mutate(id = "Homens", ano = 2016, tipo = "afazeres", faixa = "0 a 14 anos")
+  
+  afazeres_mulheres_14_2016 = readRDS(file = "tmp/horas_afazeres_mulheres_0_14_2016.rds") %>% 
+    mutate(id = "Mulheres", ano = 2016, tipo = "afazeres", faixa = "0 a 14 anos")
+  
+  
+  ############ afazeres em 15 a 59 anos
+  
+  # 2019
+  afazeres_homens_59_2019 = readRDS(file = "tmp/horas_afazeres_mulheres_15_59_2019.rds") %>% 
+    mutate(id = "Homens", ano = 2019, tipo = "afazeres", faixa = "15 a 59 anos")
+  
+  afazeres_mulheres_59_2019 = readRDS(file = "tmp/horas_afazeres_mulheres_15_59_2019.rds") %>% 
+    mutate(id = "Mulheres", ano = 2019, tipo = "afazeres", faixa = "15 a 59 anos")
+  
+  # 2018
+  afazeres_homens_59_2018 = readRDS(file = "tmp/horas_afazeres_homens_15_59_2018.rds") %>% 
+    mutate(id = "Homens", ano = 2018, tipo = "afazeres", faixa = "15 a 59 anos")
+  
+  afazeres_mulheres_59_2018 = readRDS(file = "tmp/horas_afazeres_mulheres_15_59_2018.rds") %>% 
+    mutate(id = "Mulheres", ano = 2018, tipo = "afazeres", faixa = "15 a 59 anos")  
+  
+  # 2017
+  afazeres_homens_59_2017 = readRDS(file = "tmp/horas_afazeres_homens_15_59_2017.rds") %>% 
+    mutate(id = "Homens", ano = 2017, tipo = "afazeres", faixa = "15 a 59 anos")
+  
+  afazeres_mulheres_59_2017 = readRDS(file = "tmp/horas_afazeres_mulheres_15_59_2017.rds") %>% 
+    mutate(id = "Mulheres", ano = 2017, tipo = "afazeres", faixa = "15 a 59 anos")  
+  
+  # 2016
+  afazeres_homens_59_2016 = readRDS(file = "tmp/horas_afazeres_homens_15_59_2016.rds") %>% 
+    mutate(id = "Homens", ano = 2016, tipo = "afazeres", faixa = "15 a 59 anos")
+  
+  afazeres_mulheres_59_2016 = readRDS(file = "tmp/horas_afazeres_mulheres_15_59_2016.rds") %>% 
+    mutate(id = "Mulheres", ano = 2016, tipo = "afazeres", faixa = "15 a 59 anos")  
+  
+  
+  ############ afazeres em mais de 60 anos
+  
+  # 2019
+  afazeres_homens_60_2019 = readRDS(file = "tmp/horas_afazeres_mulheres_60_2019.rds") %>% 
+    mutate(id = "Homens", ano = 2019, tipo = "afazeres", faixa = "mais de 60 anos")
+  
+  afazeres_mulheres_60_2019 = readRDS(file = "tmp/horas_afazeres_mulheres_60_2019.rds") %>% 
+    mutate(id = "Mulheres", ano = 2019, tipo = "afazeres", faixa = "mais de 60 anos")
+  
+  # 2018
+  afazeres_homens_60_2018 = readRDS(file = "tmp/horas_afazeres_homens_60_2018.rds") %>% 
+    mutate(id = "Homens", ano = 2018, tipo = "afazeres", faixa = "mais de 60 anos")
+  
+  afazeres_mulheres_60_2018 = readRDS(file = "tmp/horas_afazeres_mulheres_60_2018.rds") %>% 
+    mutate(id = "Mulheres", ano = 2018, tipo = "afazeres", faixa = "mais de 60 anos")  
+  
+  # 2017
+  afazeres_homens_60_2017 = readRDS(file = "tmp/horas_afazeres_homens_60_2017.rds") %>% 
+    mutate(id = "Homens", ano = 2017, tipo = "afazeres", faixa = "mais de 60 anos")
+  
+  afazeres_mulheres_60_2017 = readRDS(file = "tmp/horas_afazeres_mulheres_60_2017.rds") %>% 
+    mutate(id = "Mulheres", ano = 2017, tipo = "afazeres", faixa = "mais de 60 anos")  
+  
+  # 2016
+  afazeres_homens_60_2016 = readRDS(file = "tmp/horas_afazeres_homens_60_2016.rds") %>% 
+    mutate(id = "Homens", ano = 2016, tipo = "afazeres", faixa = "mais de 60 anos")
+  
+  afazeres_mulheres_60_2016 = readRDS(file = "tmp/horas_afazeres_mulheres_60_2016.rds") %>% 
+    mutate(id = "Mulheres", ano = 2016, tipo = "afazeres", faixa = "mais de 60 anos")  
+
   
   
   
+  
+############ trabalho em 0 a 14 anos
+  
+  # 2019
+  trabalho_homens_14_2019 = readRDS(file = "tmp/horas_trabalho_homens_0_14_2019.rds") %>% 
+    mutate(id = "Homens", ano = 2019, tipo = "trabalho", faixa = "0 a 14 anos")
+  
+  trabalho_mulheres_14_2019 = readRDS(file = "tmp/horas_trabalho_mulheres_0_14_2019.rds") %>% 
+    mutate(id = "Mulheres", ano = 2019, tipo = "trabalho", faixa = "0 a 14 anos")
+  
+  # 2018
+  trabalho_homens_14_2018 = readRDS(file = "tmp/horas_trabalho_homens_0_14_2018.rds") %>% 
+    mutate(id = "Homens", ano = 2018, tipo = "trabalho", faixa = "0 a 14 anos")
+  
+  trabalho_mulheres_14_2018 = readRDS(file = "tmp/horas_trabalho_mulheres_0_14_2018.rds") %>% 
+    mutate(id = "Mulheres", ano = 2018, tipo = "trabalho", faixa = "0 a 14 anos")  
+  
+  # 2017
+  trabalho_homens_14_2017 = readRDS(file = "tmp/horas_trabalho_homens_0_14_2017.rds") %>% 
+    mutate(id = "Homens", ano = 2017, tipo = "trabalho", faixa = "0 a 14 anos")
+  
+  trabalho_mulheres_14_2017 = readRDS(file = "tmp/horas_trabalho_mulheres_0_14_2017.rds") %>% 
+    mutate(id = "Mulheres", ano = 2017, tipo = "trabalho", faixa = "0 a 14 anos")  
+  
+  # 2016
+  trabalho_homens_14_2016 = readRDS(file = "tmp/horas_trabalho_homens_0_14_2016.rds") %>% 
+    mutate(id = "Homens", ano = 2016, tipo = "trabalho", faixa = "0 a 14 anos")
+  
+  trabalho_mulheres_14_2016 = readRDS(file = "tmp/horas_trabalho_mulheres_0_14_2016.rds") %>% 
+    mutate(id = "Mulheres", ano = 2016, tipo = "trabalho", faixa = "0 a 14 anos")
+  
+  
+  ############ afazeres em 15 a 59 anos
+  
+  # 2019
+  trabalho_homens_59_2019 = readRDS(file = "tmp/horas_trabalho_mulheres_15_59_2019.rds") %>% 
+    mutate(id = "Homens", ano = 2019, tipo = "trabalho", faixa = "15 a 59 anos")
+  
+  trabalho_mulheres_59_2019 = readRDS(file = "tmp/horas_trabalho_mulheres_15_59_2019.rds") %>% 
+    mutate(id = "Mulheres", ano = 2019, tipo = "trabalho", faixa = "15 a 59 anos")
+  
+  # 2018
+  trabalho_homens_59_2018 = readRDS(file = "tmp/horas_trabalho_homens_15_59_2018.rds") %>% 
+    mutate(id = "Homens", ano = 2018, tipo = "trabalho", faixa = "15 a 59 anos")
+  
+  trabalho_mulheres_59_2018 = readRDS(file = "tmp/horas_trabalho_mulheres_15_59_2018.rds") %>% 
+    mutate(id = "Mulheres", ano = 2018, tipo = "trabalho", faixa = "15 a 59 anos")  
+  
+  # 2017
+  trabalho_homens_59_2017 = readRDS(file = "tmp/horas_trabalho_homens_15_59_2017.rds") %>% 
+    mutate(id = "Homens", ano = 2017, tipo = "trabalho", faixa = "15 a 59 anos")
+  
+  trabalho_mulheres_59_2017 = readRDS(file = "tmp/horas_trabalho_mulheres_15_59_2017.rds") %>% 
+    mutate(id = "Mulheres", ano = 2017, tipo = "trabalho", faixa = "15 a 59 anos")  
+  
+  # 2016
+  trabalho_homens_59_2016 = readRDS(file = "tmp/horas_trabalho_homens_15_59_2016.rds") %>% 
+    mutate(id = "Homens", ano = 2016, tipo = "trabalho", faixa = "15 a 59 anos")
+  
+  trabalho_mulheres_59_2016 = readRDS(file = "tmp/horas_trabalho_mulheres_15_59_2016.rds") %>% 
+    mutate(id = "Mulheres", ano = 2016, tipo = "trabalho", faixa = "15 a 59 anos")  
+  
+  
+  ############ trabalho em mais de 60 anos
+  
+  # 2019
+  trabalho_homens_60_2019 = readRDS(file = "tmp/horas_trabalho_mulheres_60_2019.rds") %>% 
+    mutate(id = "Homens", ano = 2019, tipo = "trabalho", faixa = "mais de 60 anos")
+  
+  trabalho_mulheres_60_2019 = readRDS(file = "tmp/horas_trabalho_mulheres_60_2019.rds") %>% 
+    mutate(id = "Mulheres", ano = 2019, tipo = "trabalho", faixa = "mais de 60 anos")
+  
+  # 2018
+  trabalho_homens_60_2018 = readRDS(file = "tmp/horas_trabalho_homens_60_2018.rds") %>% 
+    mutate(id = "Homens", ano = 2018, tipo = "trabalho", faixa = "mais de 60 anos")
+  
+  trabalho_mulheres_60_2018 = readRDS(file = "tmp/horas_trabalho_mulheres_60_2018.rds") %>% 
+    mutate(id = "Mulheres", ano = 2018, tipo = "trabalho", faixa = "mais de 60 anos")  
+  
+  # 2017
+  trabalho_homens_60_2017 = readRDS(file = "tmp/horas_trabalho_homens_60_2017.rds") %>% 
+    mutate(id = "Homens", ano = 2017, tipo = "trabalho", faixa = "mais de 60 anos")
+  
+  trabalho_mulheres_60_2017 = readRDS(file = "tmp/horas_trabalho_mulheres_60_2017.rds") %>% 
+    mutate(id = "Mulheres", ano = 2017, tipo = "trabalho", faixa = "mais de 60 anos")  
+  
+  # 2016
+  trabalho_homens_60_2016 = readRDS(file = "tmp/horas_trabalho_homens_60_2016.rds") %>% 
+    mutate(id = "Homens", ano = 2016, tipo = "trabalho", faixa = "mais de 60 anos")
+  
+  trabalho_mulheres_60_2016 = readRDS(file = "tmp/horas_trabalho_mulheres_60_2016.rds") %>% 
+    mutate(id = "Mulheres", ano = 2016, tipo = "trabalho", faixa = "mais de 60 anos")  
     
+  
+  
+  
+# gráfico de média dos anos para cada faixa de idade de cuidado
+  
+  base1 = bind_rows(afazeres_homens_14_2019, afazeres_mulheres_14_2019,
+                    afazeres_homens_14_2018, afazeres_mulheres_14_2018,
+                    afazeres_homens_14_2017, afazeres_mulheres_14_2017,
+                    afazeres_homens_14_2016, afazeres_mulheres_14_2016,
+                    afazeres_homens_59_2019, afazeres_mulheres_59_2019,
+                    afazeres_homens_59_2018, afazeres_mulheres_59_2018,
+                    afazeres_homens_59_2017, afazeres_mulheres_59_2017,
+                    afazeres_homens_59_2016, afazeres_mulheres_59_2016,
+                    afazeres_homens_60_2019, afazeres_mulheres_60_2019,
+                    afazeres_homens_60_2018, afazeres_mulheres_60_2018,
+                    afazeres_homens_60_2017, afazeres_mulheres_60_2017,
+                    afazeres_homens_60_2016, afazeres_mulheres_60_2016) %>%
+    group_by(id, ano, tipo, faixa) %>% 
+    summarise(xxx = weighted.mean(media_horas_afazeres, pessoas_afazeres))
+  
+  
+  base2 = bind_rows(trabalho_homens_14_2019, trabalho_mulheres_14_2019,
+                    trabalho_homens_14_2018, trabalho_mulheres_14_2018,
+                    trabalho_homens_14_2017, trabalho_mulheres_14_2017,
+                    trabalho_homens_14_2016, trabalho_mulheres_14_2016,
+                    trabalho_homens_59_2019, trabalho_mulheres_59_2019,
+                    trabalho_homens_59_2018, trabalho_mulheres_59_2018,
+                    trabalho_homens_59_2017, trabalho_mulheres_59_2017,
+                    trabalho_homens_59_2016, trabalho_mulheres_59_2016,
+                    trabalho_homens_60_2019, trabalho_mulheres_60_2019,
+                    trabalho_homens_60_2018, trabalho_mulheres_60_2018,
+                    trabalho_homens_60_2017, trabalho_mulheres_60_2017,
+                    trabalho_homens_60_2016, trabalho_mulheres_60_2016) %>% 
+    group_by(id, ano, tipo, faixa) %>% 
+    summarise(xxx = weighted.mean(media_horas_trabalho, pessoas_ocupadas))
+  
+  
+  base = rbind(base1, base2)
+  
+  # juntando os anos 
+  
+  base_anos = base %>% group_by(tipo, id, faixa) %>% summarise(xxx = mean(xxx))
+  
+  
+  ggplot(base_anos, aes(x = faixa, y = xxx, fill = tipo)) +
+    geom_bar(stat = 'identity', position = 'stack', width = 0.6, ) +
+    labs(title = "Média da alocação de horas semanais", 
+         subtitle = "Entre faixas de idade de cuidado de 2016 a 2019", x = " ", y = "Horas", fill = " ") +
+    facet_wrap(~id, strip.position = "bottom")+
+    theme(strip.background = element_blank(),
+          strip.placement = "outside",
+          panel.background = element_rect(fill = "white"),
+          axis.line = element_line(colour = "black"),
+          axis.line.y = element_blank(),
+          panel.grid = element_line(colour = "grey90"),
+          legend.key = element_blank(),
+          plot.subtitle = element_text(size = 13),
+          plot.title = element_text(size = 16),
+          text = element_text(size = 16),
+          axis.text.x = element_text(size = 10)) +
+    scale_fill_manual(values = c("grey85","grey50"),
+                      labels = c("afazeres" = "Cuidados e \n afazeres domésticos",
+                                 "trabalho" = "Trabalho \n remunerado")) 
+  
