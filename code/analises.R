@@ -440,6 +440,82 @@ base = rbind(base1, base2)
                                  "trabalho" = "Trabalho \n remunerado")) 
 
   
+  base_anos_formalidade_f = base_anos_formalidade %>% filter(informalidade == "formal")
+  
+  ggplot(base_anos_formalidade_f, aes(x = id, y = xxx, fill = tipo)) +
+    geom_bar(stat = 'identity', position = 'stack', width = 0.6, ) +
+    labs(title = "Média da alocação de horas semanais", 
+         subtitle = "Entre homens e mulheres do mercado formal de 2016 a 2019", x = " ", y = "Horas", fill = " ") +
+    theme(strip.background = element_blank(),
+          strip.placement = "outside",
+          panel.background = element_rect(fill = "white"),
+          axis.line = element_line(colour = "black"),
+          panel.grid = element_line(colour = "grey90"),
+          legend.key = element_blank(),
+          plot.subtitle = element_text(size = 13),
+          plot.title = element_text(size = 16),
+          text = element_text(size = 16),
+          axis.text.x = element_text(size = 10)) +
+    scale_fill_manual(values = c("grey85","grey50"),
+                      labels = c("afazeres" = "Cuidados e \n afazeres domésticos",
+                                 "trabalho" = "Trabalho \n remunerado")) 
+  
+  
+  base_anos_formalidade_i = base_anos_formalidade %>% filter(informalidade == "informal")
+  
+  ggplot(base_anos_formalidade_i, aes(x = id, y = xxx, fill = tipo)) +
+    geom_bar(stat = 'identity', position = 'stack', width = 0.6, ) +
+    labs(title = "Média da alocação de horas semanais", 
+         subtitle = "Entre homens e mulheres do mercado informal de 2016 a 2019", x = " ", y = "Horas", fill = " ") +
+    theme(strip.background = element_blank(),
+          strip.placement = "outside",
+          panel.background = element_rect(fill = "white"),
+          axis.line = element_line(colour = "black"),
+          panel.grid = element_line(colour = "grey90"),
+          legend.key = element_blank(),
+          plot.subtitle = element_text(size = 13),
+          plot.title = element_text(size = 16),
+          text = element_text(size = 16),
+          axis.text.x = element_text(size = 10)) +
+    scale_fill_manual(values = c("grey85","grey50"),
+                      labels = c("afazeres" = "Cuidados e \n afazeres domésticos",
+                                 "trabalho" = "Trabalho \n remunerado")) 
+
+  
+# compara os sexos e a formalidade   
+  ggplot(base_anos_formalidade, aes(x = informalidade, y = xxx, fill = tipo)) +
+    geom_bar(stat = 'identity', position = 'stack', width = 0.6, ) +
+    labs(title = "Média da alocação de horas semanais", 
+         subtitle = "Entre mercado formal e informal de 2016 a 2019", x = " ", y = "Horas", fill = " ") +
+    facet_wrap(~id, strip.position = "bottom")+
+    theme(strip.background = element_blank(),
+          strip.placement = "outside",
+          panel.background = element_rect(fill = "white"),
+          axis.line = element_line(colour = "black"),
+          axis.line.y = element_blank(),
+          panel.grid = element_line(colour = "grey90"),
+          legend.key = element_blank(),
+          plot.subtitle = element_text(size = 13),
+          plot.title = element_text(size = 16),
+          text = element_text(size = 16),
+          axis.text.x = element_text(size = 10)) +
+    scale_fill_manual(values = c("grey85","grey50"),
+                      labels = c("afazeres" = "Cuidados e \n afazeres domésticos",
+                                 "trabalho" = "Trabalho \n remunerado")) 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+#########################################################################################
+########################## faixa de idade da pessoa de cuidado ##########################
+#########################################################################################    
+    
+  
   
   
   
