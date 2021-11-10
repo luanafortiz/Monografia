@@ -767,4 +767,190 @@ base = rbind(base1, base2)
     scale_fill_manual(values = c("grey85","grey50"),
                       labels = c("afazeres" = "Cuidados e \n afazeres domésticos",
                                  "trabalho" = "Trabalho \n remunerado")) 
+
+  
+  
+  
+  
+  
+  
+  
+##########################################################################
+########################## branco ou não branco ##########################
+##########################################################################
+  
+  ############ afazeres em brancos
+  
+  # 2019
+  afazeres_homens_brancos_2019 = readRDS(file = "tmp/horas_afazeres_homens_brancos_2019.rds") %>% 
+    mutate(id = "Homens", ano = 2019, tipo = "afazeres", faixa = "Brancos")
+  
+  afazeres_mulheres_brancos_2019 = readRDS(file = "tmp/horas_afazeres_mulheres_brancas_2019.rds") %>% 
+    mutate(id = "Mulheres", ano = 2019, tipo = "afazeres", faixa = "Brancos")
+  
+  # 2018
+  afazeres_homens_brancos_2018 = readRDS(file = "tmp/horas_afazeres_homens_brancos_2018.rds") %>% 
+    mutate(id = "Homens", ano = 2018, tipo = "afazeres", faixa = "Brancos")
+  
+  afazeres_mulheres_brancos_2018 = readRDS(file = "tmp/horas_afazeres_mulheres_brancas_2018.rds") %>% 
+    mutate(id = "Mulheres", ano = 2018, tipo = "afazeres", faixa = "Brancos")
+
+  #2017
+  afazeres_homens_brancos_2017 = readRDS(file = "tmp/horas_afazeres_homens_brancos_2017.rds") %>% 
+    mutate(id = "Homens", ano = 2017, tipo = "afazeres", faixa = "Brancos")
+  
+  afazeres_mulheres_brancos_2017 = readRDS(file = "tmp/horas_afazeres_mulheres_brancas_2017.rds") %>% 
+    mutate(id = "Mulheres", ano = 2017, tipo = "afazeres", faixa = "Brancos")
+
+  #2016  
+  afazeres_homens_brancos_2016 = readRDS(file = "tmp/horas_afazeres_homens_brancos_2016.rds") %>% 
+    mutate(id = "Homens", ano = 2016, tipo = "afazeres", faixa = "Brancos")
+  
+  afazeres_mulheres_brancos_2016 = readRDS(file = "tmp/horas_afazeres_mulheres_brancas_2016.rds") %>% 
+    mutate(id = "Mulheres", ano = 2016, tipo = "afazeres", faixa = "Brancos")
+  
+  
+  ############ afazeres em não brancos
+  
+  # 2019
+  afazeres_homens_nao_brancos_2019 = readRDS(file = "tmp/horas_afazeres_homens_nao_brancos_2019.rds") %>% 
+    mutate(id = "Homens", ano = 2019, tipo = "afazeres", faixa = "Não brancos")
+  
+  afazeres_mulheres_nao_brancos_2019 = readRDS(file = "tmp/horas_afazeres_mulheres_nao_brancas_2019.rds") %>% 
+    mutate(id = "Mulheres", ano = 2019, tipo = "afazeres", faixa = "Não brancos")
+  
+  # 2018
+  afazeres_homens_nao_brancos_2018 = readRDS(file = "tmp/horas_afazeres_homens_nao_brancos_2018.rds") %>% 
+    mutate(id = "Homens", ano = 2018, tipo = "afazeres", faixa = "Não brancos")
+  
+  afazeres_mulheres_nao_brancos_2018 = readRDS(file = "tmp/horas_afazeres_mulheres_nao_brancas_2018.rds") %>% 
+    mutate(id = "Mulheres", ano = 2018, tipo = "afazeres", faixa = "Não brancos")
+  
+  #2017
+  afazeres_homens_nao_brancos_2017 = readRDS(file = "tmp/horas_afazeres_homens_nao_brancos_2017.rds") %>% 
+    mutate(id = "Homens", ano = 2017, tipo = "afazeres", faixa = "Não brancos")
+  
+  afazeres_mulheres_nao_brancos_2017 = readRDS(file = "tmp/horas_afazeres_mulheres_nao_brancas_2017.rds") %>% 
+    mutate(id = "Mulheres", ano = 2017, tipo = "afazeres", faixa = "Não brancos")
+  
+  #2016  
+  afazeres_homens_nao_brancos_2016 = readRDS(file = "tmp/horas_afazeres_homens_nao_brancos_2016.rds") %>% 
+    mutate(id = "Homens", ano = 2016, tipo = "afazeres", faixa = "Não brancos")
+  
+  afazeres_mulheres_nao_brancos_2016 = readRDS(file = "tmp/horas_afazeres_mulheres_nao_brancas_2016.rds") %>% 
+    mutate(id = "Mulheres", ano = 2016, tipo = "afazeres", faixa = "Não brancos")
+  
+  
+  ############ trabalho em brancos
+  # 2019
+  trabalho_homens_brancos_2019 = readRDS(file = "tmp/horas_trabalho_homens_brancos_2019.rds") %>% 
+    mutate(id = "Homens", ano = 2019, tipo = "trabalho", faixa = "Brancos")
+  
+  trabalho_mulheres_brancos_2019 = readRDS(file = "tmp/horas_trabalho_mulheres_brancas_2019.rds") %>% 
+    mutate(id = "Mulheres", ano = 2019, tipo = "trabalho", faixa = "Brancos")
+  
+  # 2018
+  trabalho_homens_brancos_2018 = readRDS(file = "tmp/horas_trabalho_homens_brancos_2018.rds") %>% 
+    mutate(id = "Homens", ano = 2018, tipo = "trabalho", faixa = "Brancos")
+  
+  trabalho_mulheres_brancos_2018 = readRDS(file = "tmp/horas_trabalho_mulheres_brancas_2018.rds") %>% 
+    mutate(id = "Mulheres", ano = 2018, tipo = "trabalho", faixa = "Brancos")
+  
+  #2017
+  trabalho_homens_brancos_2017 = readRDS(file = "tmp/horas_trabalho_homens_brancos_2017.rds") %>% 
+    mutate(id = "Homens", ano = 2017, tipo = "trabalho", faixa = "Brancos")
+  
+  trabalho_mulheres_brancos_2017 = readRDS(file = "tmp/horas_trabalho_mulheres_brancas_2017.rds") %>% 
+    mutate(id = "Mulheres", ano = 2017, tipo = "trabalho", faixa = "Brancos")
+  
+  #2016  
+  trabalho_homens_brancos_2016 = readRDS(file = "tmp/horas_trabalho_homens_brancos_2016.rds") %>% 
+    mutate(id = "Homens", ano = 2016, tipo = "trabalho", faixa = "Brancos")
+  
+  trabalho_mulheres_brancos_2016 = readRDS(file = "tmp/horas_trabalho_mulheres_brancas_2016.rds") %>% 
+    mutate(id = "Mulheres", ano = 2016, tipo = "trabalho", faixa = "Brancos")
+  
+  ############ trabalho em não brancos
+  
+  
+  # 2019
+  trabalho_homens_nao_brancos_2019 = readRDS(file = "tmp/horas_trabalho_homens_nao_brancos_2019.rds") %>% 
+    mutate(id = "Homens", ano = 2019, tipo = "trabalho", faixa = "Não brancos")
+  
+  trabalho_mulheres_nao_brancos_2019 = readRDS(file = "tmp/horas_trabalho_mulheres_nao_brancas_2019.rds") %>% 
+    mutate(id = "Mulheres", ano = 2019, tipo = "trabalho", faixa = "Não brancos")
+  
+  # 2018
+  trabalho_homens_nao_brancos_2018 = readRDS(file = "tmp/horas_trabalho_homens_nao_brancos_2018.rds") %>% 
+    mutate(id = "Homens", ano = 2018, tipo = "trabalho", faixa = "Não brancos")
+  
+  trabalho_mulheres_nao_brancos_2018 = readRDS(file = "tmp/horas_trabalho_mulheres_nao_brancas_2018.rds") %>% 
+    mutate(id = "Mulheres", ano = 2018, tipo = "trabalho", faixa = "Não brancos")
+  
+  #2017
+  trabalho_homens_nao_brancos_2017 = readRDS(file = "tmp/horas_trabalho_homens_nao_brancos_2017.rds") %>% 
+    mutate(id = "Homens", ano = 2017, tipo = "trabalho", faixa = "Não brancos")
+  
+  trabalho_mulheres_nao_brancos_2017 = readRDS(file = "tmp/horas_trabalho_mulheres_nao_brancas_2017.rds") %>% 
+    mutate(id = "Mulheres", ano = 2017, tipo = "trabalho", faixa = "Não brancos")
+  
+  #2016  
+  trabalho_homens_nao_brancos_2016 = readRDS(file = "tmp/horas_trabalho_homens_nao_brancos_2016.rds") %>% 
+    mutate(id = "Homens", ano = 2016, tipo = "trabalho", faixa = "Não brancos")
+  
+  trabalho_mulheres_nao_brancos_2016 = readRDS(file = "tmp/horas_trabalho_mulheres_nao_brancas_2016.rds") %>% 
+    mutate(id = "Mulheres", ano = 2016, tipo = "trabalho", faixa = "Não brancos")
+  
+  
+  
+  base1 = bind_rows(afazeres_homens_brancos_2019, afazeres_mulheres_brancos_2019,
+                    afazeres_homens_brancos_2018, afazeres_mulheres_brancos_2018,
+                    afazeres_homens_brancos_2017, afazeres_mulheres_brancos_2017,
+                    afazeres_homens_brancos_2016, afazeres_mulheres_brancos_2016,
+                    afazeres_homens_nao_brancos_2019, afazeres_mulheres_nao_brancos_2019,
+                    afazeres_homens_nao_brancos_2018, afazeres_mulheres_nao_brancos_2018,
+                    afazeres_homens_nao_brancos_2017, afazeres_mulheres_nao_brancos_2017,
+                    afazeres_homens_nao_brancos_2016, afazeres_mulheres_nao_brancos_2016) %>%
+    group_by(id, ano, tipo, faixa) %>% 
+    summarise(xxx = weighted.mean(media_horas_afazeres, pessoas_afazeres))
+  
+  
+  base2 = bind_rows(trabalho_homens_brancos_2019, trabalho_mulheres_brancos_2019,
+                    trabalho_homens_brancos_2018, trabalho_mulheres_brancos_2018,
+                    trabalho_homens_brancos_2017, trabalho_mulheres_brancos_2017,
+                    trabalho_homens_brancos_2016, trabalho_mulheres_brancos_2016,
+                    trabalho_homens_nao_brancos_2019, trabalho_mulheres_nao_brancos_2019,
+                    trabalho_homens_nao_brancos_2018, trabalho_mulheres_nao_brancos_2018,
+                    trabalho_homens_nao_brancos_2017, trabalho_mulheres_nao_brancos_2017,
+                    trabalho_homens_nao_brancos_2016, trabalho_mulheres_nao_brancos_2016) %>% 
+    group_by(id, ano, tipo, faixa) %>% 
+    summarise(xxx = weighted.mean(media_horas_trabalho, pessoas_ocupadas))
+  
+  
+  base = rbind(base1, base2)
+  
+  # juntando os anos 
+  
+  base_anos = base %>% group_by(tipo, id, faixa) %>% summarise(xxx = mean(xxx))
+  
+  
+  ggplot(base_anos, aes(x = faixa, y = xxx, fill = tipo)) +
+    geom_bar(stat = 'identity', position = 'stack', width = 0.6, ) +
+    labs(title = "Média da alocação de horas semanais", 
+         subtitle = "Entre brancos e não brancos de 2016 a 2019", x = " ", y = "Horas", fill = " ") +
+    facet_wrap(~id, strip.position = "bottom")+
+    theme(strip.background = element_blank(),
+          strip.placement = "outside",
+          panel.background = element_rect(fill = "white"),
+          axis.line = element_line(colour = "black"),
+          axis.line.y = element_blank(),
+          panel.grid = element_line(colour = "grey90"),
+          legend.key = element_blank(),
+          plot.subtitle = element_text(size = 13),
+          plot.title = element_text(size = 16),
+          text = element_text(size = 16),
+          axis.text.x = element_text(size = 10)) +
+    scale_fill_manual(values = c("grey85","grey50"),
+                      labels = c("afazeres" = "Cuidados e \n afazeres domésticos",
+                                 "trabalho" = "Trabalho \n remunerado")) 
   
