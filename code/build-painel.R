@@ -3,10 +3,12 @@ library(haven)
 library(dplyr)
 
 
-
+setwd("C:/Users/luana/OneDrive/Documentos/Monografia/")
 # painel 7
 
-painel7 = read_dta(file = "input/PNAD_painel_7_rs.dta") %>% slice_head(prop = 0.1)
+painel7 = read_dta(file = "input/PNAD_painel_7_rs.dta")
+painel8 = read_dta(file = "input/PNAD_painel_8_rs.dta")
+#%>% slice_head(prop = 0.1)
 
 variaveis_escolhidas = c("Ano", "Trimestre", "UF", "Capital", 
                          "V1008", # número de seleção do domicilio
@@ -47,6 +49,22 @@ variaveis_escolhidas = c("Ano", "Trimestre", "UF", "Capital",
 
 # selecionando as variáveis importantes
 painel7 = painel7 %>% select(all_of(variaveis_escolhidas))
+painel8 = painel8 %>% select(all_of(variaveis_escolhidas))
+
+
+# juntar os dois paineis 
+painel78 = bind_rows(painel7,painel8)
+
+
+
+
+
+
+
+
+
+
+
 
 # filtrar trimestres desejados (1 e 2 2019)
 trimestres = painel7 %>% dplyr::filter(Ano == 2019 & (Trimestre == 1 | Trimestre == 2)) 

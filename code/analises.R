@@ -90,7 +90,7 @@ base = rbind(base1, base2)
 
   ggplot(base, aes(x = id, y = xxx, fill = tipo)) +
     geom_bar(stat = 'identity', position = 'stack', width = 0.8, ) +
-    labs(title = "Média da alocação de horas semanais", 
+    labs(title = "M?dia da aloca??o de horas semanais", 
          subtitle = "Entre homens e mulheres", x = " ", y = "Horas", fill = " ") +
     facet_wrap(~ano, ncol = 4, strip.position = 'bottom') +
     theme(strip.background = element_blank(),
@@ -104,7 +104,7 @@ base = rbind(base1, base2)
           text = element_text(size = 16),
           axis.text.x = element_text(size = 10)) +
     scale_fill_manual(values = c("grey85","grey50"),
-                      labels = c("afazeres" = "Cuidados e \n afazeres domésticos",
+                      labels = c("afazeres" = "Cuidados e \n afazeres dom?sticos",
                                  "trabalho" = "Trabalho \n remunerado"))
   
   
@@ -116,7 +116,7 @@ base = rbind(base1, base2)
   
   ggplot(base_anos, aes(x = id, y = xxx, fill = tipo)) +
     geom_bar(stat = 'identity', position = 'stack', width = 0.6, ) +
-    labs(title = "Média da alocação de horas semanais", 
+    labs(title = "M?dia da aloca??o de horas semanais", 
          subtitle = "Entre homens e mulheres de 2016 a 2019" ,x = " ", y = "Horas", fill = " ") +
     theme(strip.background = element_blank(),
           strip.placement = "outside",
@@ -129,7 +129,7 @@ base = rbind(base1, base2)
           text = element_text(size = 16),
           axis.text.x = element_text(size = 10)) +
     scale_fill_manual(values = c("grey85","grey50"),
-                      labels = c("afazeres" = "Cuidados e \n afazeres domésticos",
+                      labels = c("afazeres" = "Cuidados e \n afazeres dom?sticos",
                                  "trabalho" = "Trabalho \n remunerado"))
   
   
@@ -275,7 +275,7 @@ base = rbind(base1, base2)
   
   
 ####################################################################################################
-#################################### gráfico de alocação de horas, comparando formais e informais 
+#################################### gr?fico de aloca??o de horas, comparando formais e informais 
 ####################################################################################################
   
   
@@ -307,7 +307,7 @@ base = rbind(base1, base2)
   
   ggplot(base, aes(x = informalidade, y = xxx, fill = tipo)) +
     geom_bar(stat = 'identity', position = 'stack', width = 0.8, ) +
-    labs(title = "Média da alocação de horas semanais", 
+    labs(title = "M?dia da aloca??o de horas semanais", 
          subtitle = "Entre mercado formal e informal",x = " ", y = "Horas", fill = " ") +
     facet_wrap(~ano, ncol = 4, strip.position = 'bottom') +
     theme(strip.background = element_blank(),
@@ -321,12 +321,12 @@ base = rbind(base1, base2)
           text = element_text(size = 16),
           axis.text.x = element_text(size = 10)) +
     scale_fill_manual(values = c("grey85","grey50"),
-                      labels = c("afazeres" = "Cuidados e \n afazeres domésticos",
+                      labels = c("afazeres" = "Cuidados e \n afazeres dom?sticos",
                                  "trabalho" = "Trabalho \n remunerado"))
   
   
 ####################################################################################################
-#################################### gráfico de alocação de horas, comparando formais e informais ##
+#################################### gr?fico de aloca??o de horas, comparando formais e informais ##
 #################################################### homens#########################################
 ####################################################################################################
 
@@ -335,7 +335,7 @@ base = rbind(base1, base2)
   
   ggplot(base_homens, aes(x = informalidade, y = xxx, fill = tipo)) +
     geom_bar(stat = 'identity', position = 'stack', width = 0.8, ) +
-    labs(title = "Média da alocação de horas semanais por mercado formal e informal", 
+    labs(title = "M?dia da aloca??o de horas semanais por mercado formal e informal", 
          subtitle = "Homens", x = " ", y = "Horas", fill = " ") +
     facet_wrap(~ano, ncol = 4, strip.position = 'bottom') +
     theme(strip.background = element_blank(),
@@ -349,7 +349,7 @@ base = rbind(base1, base2)
           text = element_text(size = 16),
           axis.text.x = element_text(size = 10)) +
     scale_fill_manual(values = c("grey85","grey50"),
-                      labels = c("afazeres" = "Cuidados e \n afazeres domésticos",
+                      labels = c("afazeres" = "Cuidados e \n afazeres dom?sticos",
                                  "trabalho" = "Trabalho \n remunerado")) 
 ####### mulher
   
@@ -357,7 +357,7 @@ base = rbind(base1, base2)
   
   ggplot(base_mulheres, aes(x = informalidade, y = xxx, fill = tipo)) +
     geom_bar(stat = 'identity', position = 'stack', width = 0.8, ) +
-    labs(title = "Média da alocação de horas semanais por mercado formal e informal", 
+    labs(title = "M?dia da aloca??o de horas semanais por mercado formal e informal", 
          subtitle = "Mulheres", x = " ", y = "Horas", fill = " ") +
     facet_wrap(~ano, ncol = 4, strip.position = 'bottom') +
     theme(strip.background = element_blank(),
@@ -371,7 +371,7 @@ base = rbind(base1, base2)
           text = element_text(size = 16),
           axis.text.x = element_text(size = 10)) +
     scale_fill_manual(values = c("grey85","grey50"),
-                      labels = c("afazeres" = "Cuidados e \n afazeres domésticos",
+                      labels = c("afazeres" = "Cuidados e \n afazeres dom?sticos",
                                  "trabalho" = "Trabalho \n remunerado")) 
   
   
@@ -381,7 +381,7 @@ base = rbind(base1, base2)
   
   ggplot(base_anos_formalidade, aes(x = informalidade, y = xxx, fill = tipo)) +
     geom_bar(stat = 'identity', position = 'stack', width = 0.6, ) +
-    labs(title = "Média da alocação de horas semanais", 
+    labs(title = "M?dia da aloca??o de horas semanais", 
          subtitle = "Entre mercado formal e informal de 2016 a 2019" ,x = " ", y = "Horas", fill = " ") +
     theme(strip.background = element_blank(),
           strip.placement = "outside",
@@ -394,7 +394,7 @@ base = rbind(base1, base2)
           text = element_text(size = 16),
           axis.text.x = element_text(size = 10)) +
     scale_fill_manual(values = c("grey85","grey50"),
-                      labels = c("afazeres" = "Cuidados e \n afazeres domésticos",
+                      labels = c("afazeres" = "Cuidados e \n afazeres dom?sticos",
                                  "trabalho" = "Trabalho \n remunerado"))
   
   
@@ -403,7 +403,7 @@ base = rbind(base1, base2)
   
   ggplot(base_anos_formalidade_m, aes(x = informalidade, y = xxx, fill = tipo)) +
     geom_bar(stat = 'identity', position = 'stack', width = 0.6, ) +
-    labs(title = "Média da alocação de horas semanais", 
+    labs(title = "M?dia da aloca??o de horas semanais", 
          subtitle = "Mulheres entre mercado formal e informal de 2016 a 2019", x = " ", y = "Horas", fill = " ") +
     theme(strip.background = element_blank(),
           strip.placement = "outside",
@@ -416,14 +416,14 @@ base = rbind(base1, base2)
           text = element_text(size = 16),
           axis.text.x = element_text(size = 10)) +
     scale_fill_manual(values = c("grey85","grey50"),
-                      labels = c("afazeres" = "Cuidados e \n afazeres domésticos",
+                      labels = c("afazeres" = "Cuidados e \n afazeres dom?sticos",
                                  "trabalho" = "Trabalho \n remunerado")) 
   
   base_anos_formalidade_h = base_anos_formalidade %>% filter(id == "Homens")
   
   ggplot(base_anos_formalidade_h, aes(x = informalidade, y = xxx, fill = tipo)) +
     geom_bar(stat = 'identity', position = 'stack', width = 0.6, ) +
-    labs(title = "Média da alocação de horas semanais", 
+    labs(title = "M?dia da aloca??o de horas semanais", 
          subtitle = "Homens entre mercado formal e informal de 2016 a 2019", x = " ", y = "Horas", fill = " ") +
     theme(strip.background = element_blank(),
           strip.placement = "outside",
@@ -436,7 +436,7 @@ base = rbind(base1, base2)
           text = element_text(size = 16),
           axis.text.x = element_text(size = 10)) +
     scale_fill_manual(values = c("grey85","grey50"),
-                      labels = c("afazeres" = "Cuidados e \n afazeres domésticos",
+                      labels = c("afazeres" = "Cuidados e \n afazeres dom?sticos",
                                  "trabalho" = "Trabalho \n remunerado")) 
 
   
@@ -444,7 +444,7 @@ base = rbind(base1, base2)
   
   ggplot(base_anos_formalidade_f, aes(x = id, y = xxx, fill = tipo)) +
     geom_bar(stat = 'identity', position = 'stack', width = 0.6, ) +
-    labs(title = "Média da alocação de horas semanais", 
+    labs(title = "M?dia da aloca??o de horas semanais", 
          subtitle = "Entre homens e mulheres do mercado formal de 2016 a 2019", x = " ", y = "Horas", fill = " ") +
     theme(strip.background = element_blank(),
           strip.placement = "outside",
@@ -457,7 +457,7 @@ base = rbind(base1, base2)
           text = element_text(size = 16),
           axis.text.x = element_text(size = 10)) +
     scale_fill_manual(values = c("grey85","grey50"),
-                      labels = c("afazeres" = "Cuidados e \n afazeres domésticos",
+                      labels = c("afazeres" = "Cuidados e \n afazeres dom?sticos",
                                  "trabalho" = "Trabalho \n remunerado")) 
   
   
@@ -465,7 +465,7 @@ base = rbind(base1, base2)
   
   ggplot(base_anos_formalidade_i, aes(x = id, y = xxx, fill = tipo)) +
     geom_bar(stat = 'identity', position = 'stack', width = 0.6, ) +
-    labs(title = "Média da alocação de horas semanais", 
+    labs(title = "M?dia da aloca??o de horas semanais", 
          subtitle = "Entre homens e mulheres do mercado informal de 2016 a 2019", x = " ", y = "Horas", fill = " ") +
     theme(strip.background = element_blank(),
           strip.placement = "outside",
@@ -478,14 +478,14 @@ base = rbind(base1, base2)
           text = element_text(size = 16),
           axis.text.x = element_text(size = 10)) +
     scale_fill_manual(values = c("grey85","grey50"),
-                      labels = c("afazeres" = "Cuidados e \n afazeres domésticos",
+                      labels = c("afazeres" = "Cuidados e \n afazeres dom?sticos",
                                  "trabalho" = "Trabalho \n remunerado")) 
 
   
 # compara os sexos e a formalidade   
   ggplot(base_anos_formalidade, aes(x = informalidade, y = xxx, fill = tipo)) +
     geom_bar(stat = 'identity', position = 'stack', width = 0.6, ) +
-    labs(title = "Média da alocação de horas semanais", 
+    labs(title = "M?dia da aloca??o de horas semanais", 
          subtitle = "Entre mercado formal e informal de 2016 a 2019", x = " ", y = "Horas", fill = " ") +
     facet_wrap(~id, strip.position = "bottom")+
     theme(strip.background = element_blank(),
@@ -500,7 +500,7 @@ base = rbind(base1, base2)
           text = element_text(size = 16),
           axis.text.x = element_text(size = 10)) +
     scale_fill_manual(values = c("grey85","grey50"),
-                      labels = c("afazeres" = "Cuidados e \n afazeres domésticos",
+                      labels = c("afazeres" = "Cuidados e \n afazeres dom?sticos",
                                  "trabalho" = "Trabalho \n remunerado")) 
   
   
@@ -707,7 +707,7 @@ base = rbind(base1, base2)
   
   
   
-# gráfico de média dos anos para cada faixa de idade de cuidado
+# gr?fico de m?dia dos anos para cada faixa de idade de cuidado
   
   base1 = bind_rows(afazeres_homens_14_2019, afazeres_mulheres_14_2019,
                     afazeres_homens_14_2018, afazeres_mulheres_14_2018,
@@ -750,7 +750,7 @@ base = rbind(base1, base2)
   
   ggplot(base_anos, aes(x = faixa, y = xxx, fill = tipo)) +
     geom_bar(stat = 'identity', position = 'stack', width = 0.6, ) +
-    labs(title = "Média da alocação de horas semanais", 
+    labs(title = "M?dia da aloca??o de horas semanais", 
          subtitle = "Entre faixas de idade de cuidado de 2016 a 2019", x = " ", y = "Horas", fill = " ") +
     facet_wrap(~id, strip.position = "bottom")+
     theme(strip.background = element_blank(),
@@ -765,7 +765,7 @@ base = rbind(base1, base2)
           text = element_text(size = 16),
           axis.text.x = element_text(size = 10)) +
     scale_fill_manual(values = c("grey85","grey50"),
-                      labels = c("afazeres" = "Cuidados e \n afazeres domésticos",
+                      labels = c("afazeres" = "Cuidados e \n afazeres dom?sticos",
                                  "trabalho" = "Trabalho \n remunerado")) 
 
   
@@ -776,7 +776,7 @@ base = rbind(base1, base2)
   
   
 ##########################################################################
-########################## branco ou não branco ##########################
+########################## branco ou n?o branco ##########################
 ##########################################################################
   
   ############ afazeres em brancos
@@ -810,35 +810,35 @@ base = rbind(base1, base2)
     mutate(id = "Mulheres", ano = 2016, tipo = "afazeres", faixa = "Brancos")
   
   
-  ############ afazeres em não brancos
+  ############ afazeres em n?o brancos
   
   # 2019
   afazeres_homens_nao_brancos_2019 = readRDS(file = "tmp/horas_afazeres_homens_nao_brancos_2019.rds") %>% 
-    mutate(id = "Homens", ano = 2019, tipo = "afazeres", faixa = "Não brancos")
+    mutate(id = "Homens", ano = 2019, tipo = "afazeres", faixa = "N?o brancos")
   
   afazeres_mulheres_nao_brancos_2019 = readRDS(file = "tmp/horas_afazeres_mulheres_nao_brancas_2019.rds") %>% 
-    mutate(id = "Mulheres", ano = 2019, tipo = "afazeres", faixa = "Não brancos")
+    mutate(id = "Mulheres", ano = 2019, tipo = "afazeres", faixa = "N?o brancos")
   
   # 2018
   afazeres_homens_nao_brancos_2018 = readRDS(file = "tmp/horas_afazeres_homens_nao_brancos_2018.rds") %>% 
-    mutate(id = "Homens", ano = 2018, tipo = "afazeres", faixa = "Não brancos")
+    mutate(id = "Homens", ano = 2018, tipo = "afazeres", faixa = "N?o brancos")
   
   afazeres_mulheres_nao_brancos_2018 = readRDS(file = "tmp/horas_afazeres_mulheres_nao_brancas_2018.rds") %>% 
-    mutate(id = "Mulheres", ano = 2018, tipo = "afazeres", faixa = "Não brancos")
+    mutate(id = "Mulheres", ano = 2018, tipo = "afazeres", faixa = "N?o brancos")
   
   #2017
   afazeres_homens_nao_brancos_2017 = readRDS(file = "tmp/horas_afazeres_homens_nao_brancos_2017.rds") %>% 
-    mutate(id = "Homens", ano = 2017, tipo = "afazeres", faixa = "Não brancos")
+    mutate(id = "Homens", ano = 2017, tipo = "afazeres", faixa = "N?o brancos")
   
   afazeres_mulheres_nao_brancos_2017 = readRDS(file = "tmp/horas_afazeres_mulheres_nao_brancas_2017.rds") %>% 
-    mutate(id = "Mulheres", ano = 2017, tipo = "afazeres", faixa = "Não brancos")
+    mutate(id = "Mulheres", ano = 2017, tipo = "afazeres", faixa = "N?o brancos")
   
   #2016  
   afazeres_homens_nao_brancos_2016 = readRDS(file = "tmp/horas_afazeres_homens_nao_brancos_2016.rds") %>% 
-    mutate(id = "Homens", ano = 2016, tipo = "afazeres", faixa = "Não brancos")
+    mutate(id = "Homens", ano = 2016, tipo = "afazeres", faixa = "N?o brancos")
   
   afazeres_mulheres_nao_brancos_2016 = readRDS(file = "tmp/horas_afazeres_mulheres_nao_brancas_2016.rds") %>% 
-    mutate(id = "Mulheres", ano = 2016, tipo = "afazeres", faixa = "Não brancos")
+    mutate(id = "Mulheres", ano = 2016, tipo = "afazeres", faixa = "N?o brancos")
   
   
   ############ trabalho em brancos
@@ -870,36 +870,36 @@ base = rbind(base1, base2)
   trabalho_mulheres_brancos_2016 = readRDS(file = "tmp/horas_trabalho_mulheres_brancas_2016.rds") %>% 
     mutate(id = "Mulheres", ano = 2016, tipo = "trabalho", faixa = "Brancos")
   
-  ############ trabalho em não brancos
+  ############ trabalho em n?o brancos
   
   
   # 2019
   trabalho_homens_nao_brancos_2019 = readRDS(file = "tmp/horas_trabalho_homens_nao_brancos_2019.rds") %>% 
-    mutate(id = "Homens", ano = 2019, tipo = "trabalho", faixa = "Não brancos")
+    mutate(id = "Homens", ano = 2019, tipo = "trabalho", faixa = "N?o brancos")
   
   trabalho_mulheres_nao_brancos_2019 = readRDS(file = "tmp/horas_trabalho_mulheres_nao_brancas_2019.rds") %>% 
-    mutate(id = "Mulheres", ano = 2019, tipo = "trabalho", faixa = "Não brancos")
+    mutate(id = "Mulheres", ano = 2019, tipo = "trabalho", faixa = "N?o brancos")
   
   # 2018
   trabalho_homens_nao_brancos_2018 = readRDS(file = "tmp/horas_trabalho_homens_nao_brancos_2018.rds") %>% 
-    mutate(id = "Homens", ano = 2018, tipo = "trabalho", faixa = "Não brancos")
+    mutate(id = "Homens", ano = 2018, tipo = "trabalho", faixa = "N?o brancos")
   
   trabalho_mulheres_nao_brancos_2018 = readRDS(file = "tmp/horas_trabalho_mulheres_nao_brancas_2018.rds") %>% 
-    mutate(id = "Mulheres", ano = 2018, tipo = "trabalho", faixa = "Não brancos")
+    mutate(id = "Mulheres", ano = 2018, tipo = "trabalho", faixa = "N?o brancos")
   
   #2017
   trabalho_homens_nao_brancos_2017 = readRDS(file = "tmp/horas_trabalho_homens_nao_brancos_2017.rds") %>% 
-    mutate(id = "Homens", ano = 2017, tipo = "trabalho", faixa = "Não brancos")
+    mutate(id = "Homens", ano = 2017, tipo = "trabalho", faixa = "N?o brancos")
   
   trabalho_mulheres_nao_brancos_2017 = readRDS(file = "tmp/horas_trabalho_mulheres_nao_brancas_2017.rds") %>% 
-    mutate(id = "Mulheres", ano = 2017, tipo = "trabalho", faixa = "Não brancos")
+    mutate(id = "Mulheres", ano = 2017, tipo = "trabalho", faixa = "N?o brancos")
   
   #2016  
   trabalho_homens_nao_brancos_2016 = readRDS(file = "tmp/horas_trabalho_homens_nao_brancos_2016.rds") %>% 
-    mutate(id = "Homens", ano = 2016, tipo = "trabalho", faixa = "Não brancos")
+    mutate(id = "Homens", ano = 2016, tipo = "trabalho", faixa = "N?o brancos")
   
   trabalho_mulheres_nao_brancos_2016 = readRDS(file = "tmp/horas_trabalho_mulheres_nao_brancas_2016.rds") %>% 
-    mutate(id = "Mulheres", ano = 2016, tipo = "trabalho", faixa = "Não brancos")
+    mutate(id = "Mulheres", ano = 2016, tipo = "trabalho", faixa = "N?o brancos")
   
   
   
@@ -936,8 +936,8 @@ base = rbind(base1, base2)
   
   ggplot(base_anos, aes(x = faixa, y = xxx, fill = tipo)) +
     geom_bar(stat = 'identity', position = 'stack', width = 0.6, ) +
-    labs(title = "Média da alocação de horas semanais", 
-         subtitle = "Entre brancos e não brancos de 2016 a 2019", x = " ", y = "Horas", fill = " ") +
+    labs(title = "MÃ©dia da alocaÃ§Ã£o de horas semanais", 
+         subtitle = "Entre brancos e nÃ£o brancos de 2016 a 2019", x = " ", y = "Horas", fill = " ") +
     facet_wrap(~id, strip.position = "bottom")+
     theme(strip.background = element_blank(),
           strip.placement = "outside",
@@ -951,6 +951,6 @@ base = rbind(base1, base2)
           text = element_text(size = 16),
           axis.text.x = element_text(size = 10)) +
     scale_fill_manual(values = c("grey85","grey50"),
-                      labels = c("afazeres" = "Cuidados e \n afazeres domésticos",
+                      labels = c("afazeres" = "Cuidados e \n afazeres dom?sticos",
                                  "trabalho" = "Trabalho \n remunerado")) 
   
