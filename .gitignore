@@ -14,3 +14,7 @@
 *.csv
 *.csv
 *.xlsx
+.RData
+.RDataTmp
+*.csv
+input/transicao_csv/transicao_2019_1.csv
