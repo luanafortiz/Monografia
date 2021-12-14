@@ -1,136 +1,8 @@
-# build transição
 
-library(readxl)
-library(Rcpp)
-library(tidyverse)
-library(haven)
-library(dplyr)
-library(devtools)
-# devtools::install_github("thomasp85/patchwork")
-library(patchwork)
-library(scales)
-
-setwd("C:/Users/luana/OneDrive/Documentos/Monografia/output/transicao")
-
-# todos
-dados_todos = read_excel("C:/Users/luana/OneDrive/Documentos/Monografia/output/transicao/transicao_todos.xlsx", col_names = T) %>% 
-  mutate(ufuf = as.numeric(ufuf),
-         uiuf = as.numeric(uiuf),
-         duf = as.numeric(duf),
-         fuf = as.numeric(fuf), 
-         ufui = as.numeric(ufui),
-         uiui = as.numeric(uiui),
-         dui = as.numeric(dui),
-         fui = as.numeric(fui),
-         ufd = as.numeric(ufd),
-         uid = as.numeric(uid),
-         dd = as.numeric(dd),
-         fd = as.numeric(fd),
-         uff = as.numeric(uff),
-         uif = as.numeric(uif),
-         df = as.numeric(df),
-         ff = as.numeric(ff))
+# teste para pais e maes
 
 
-
-# mulheres
-dados_mulheres = read_excel("C:/Users/luana/OneDrive/Documentos/Monografia/output/transicao/transicao_mulheres.xlsx", col_names = T)  %>% 
-  mutate(ufuf = as.numeric(ufuf),
-         uiuf = as.numeric(uiuf),
-         duf = as.numeric(duf),
-         fuf = as.numeric(fuf), 
-         ufui = as.numeric(ufui),
-         uiui = as.numeric(uiui),
-         dui = as.numeric(dui),
-         fui = as.numeric(fui),
-         ufd = as.numeric(ufd),
-         uid = as.numeric(uid),
-         dd = as.numeric(dd),
-         fd = as.numeric(fd),
-         uff = as.numeric(uff),
-         uif = as.numeric(uif),
-         df = as.numeric(df),
-         ff = as.numeric(ff))
-
-# homens
-dados_homens = read_excel("C:/Users/luana/OneDrive/Documentos/Monografia/output/transicao/transicao_homens.xlsx", col_names = T)  %>% 
-  mutate(ufuf = as.numeric(ufuf),
-         uiuf = as.numeric(uiuf),
-         duf = as.numeric(duf),
-         fuf = as.numeric(fuf), 
-         ufui = as.numeric(ufui),
-         uiui = as.numeric(uiui),
-         dui = as.numeric(dui),
-         fui = as.numeric(fui),
-         ufd = as.numeric(ufd),
-         uid = as.numeric(uid),
-         dd = as.numeric(dd),
-         fd = as.numeric(fd),
-         uff = as.numeric(uff),
-         uif = as.numeric(uif),
-         df = as.numeric(df),
-         ff = as.numeric(ff))
-
-
-# maes
-dados_maes= read_excel("C:/Users/luana/OneDrive/Documentos/Monografia/output/transicao/transicao_mulheres_maes.xlsx", col_names = T) %>% 
-  mutate(ufuf = as.numeric(ufuf),
-         uiuf = as.numeric(uiuf),
-         duf = as.numeric(duf),
-         fuf = as.numeric(fuf), 
-         ufui = as.numeric(ufui),
-         uiui = as.numeric(uiui),
-         dui = as.numeric(dui),
-         fui = as.numeric(fui),
-         ufd = as.numeric(ufd),
-         uid = as.numeric(uid),
-         dd = as.numeric(dd),
-         fd = as.numeric(fd),
-         uff = as.numeric(uff),
-         uif = as.numeric(uif),
-         df = as.numeric(df),
-         ff = as.numeric(ff))
-
-# pais
-dados_pais = read_excel("C:/Users/luana/OneDrive/Documentos/Monografia/output/transicao/transicao_homens_pais.xlsx", col_names = T) %>% 
-  mutate(ufuf = as.numeric(ufuf),
-         uiuf = as.numeric(uiuf),
-         duf = as.numeric(duf),
-         fuf = as.numeric(fuf), 
-         ufui = as.numeric(ufui),
-         uiui = as.numeric(uiui),
-         dui = as.numeric(dui),
-         fui = as.numeric(fui),
-         ufd = as.numeric(ufd),
-         uid = as.numeric(uid),
-         dd = as.numeric(dd),
-         fd = as.numeric(fd),
-         uff = as.numeric(uff),
-         uif = as.numeric(uif),
-         df = as.numeric(df),
-         ff = as.numeric(ff))
-
-
-# ggplot(dados_todos, aes(x = yearq, y = ufuf)) +   
-  # geom_bar(stat = 'identity', position = 'stack', width = 0.6, ) +
-  # labs(title = "ufuf", 
-  #      subtitle = "xxxxx", x = " ", y = "Horas", fill = " ") +
-  # theme(strip.background = element_blank(),
-  #       strip.placement = "outside",
-  #       panel.background = element_rect(fill = "white"),
-  #       axis.line = element_line(colour = "black"),
-  #       axis.line.y = element_blank(),
-  #       panel.grid = element_line(colour = "grey90"),
-  #       legend.key = element_blank(),
-  #       plot.subtitle = element_text(size = 13),
-  #       plot.title = element_text(size = 16),
-  #       text = element_text(size = 16),
-  #       axis.text.x = element_text(size = 10))
-
-
-## giovanni
-
-dados = dados_todos %>% mutate(tri = paste0(year," - ", quarter,"º Tri"))
+dados = dados_maes %>% mutate(tri = paste0(year," - ", quarter,"º Tri"))
 
 ufuf = ggplot(dados, aes(x = tri, y = ufuf))+
   geom_col() + xlab(NULL) + ylab(NULL) + ylim(0,0.8) +
@@ -435,14 +307,14 @@ taxas = read_excel("C:/Users/luana/OneDrive/Documentos/Monografia/desocupados.xl
   mutate(Mulheres = as.numeric(Mulheres),
          Homens = as.numeric(Homens),
          Total = as.numeric(Total))
-  
+
 ggplot(taxas, aes(x = date, y = Mulheres, group = 1)) +
   geom_line(aes(y = Mulheres, color = "Mulheres"), size = 1) +
   geom_line(aes(y = Homens, color = "Homens"), size = 1) +
   geom_line(aes(y = Total, color = "Todos"), size = 1) +
   scale_colour_manual("", values=c("Mulheres" = "red","Homens" = "blue","Todos" = "green")) +
   labs(title = "Evolução da Taxa de Desocupação entre 2012 e 2021, desagregada por sexo", x = NULL, y = NULL) +
-    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1, size = 8),
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1, size = 8),
         strip.background = element_blank(),
         strip.placement = "outside",
         panel.background = element_rect(fill = "white"),
@@ -453,21 +325,4 @@ ggplot(taxas, aes(x = date, y = Mulheres, group = 1)) +
         plot.subtitle = element_text(size = 13),
         plot.title = element_text(size = 16),
         text = element_text(size = 16)) 
-  
-
-
-ggsave("desocupado.png", scale = 1, plot = last_plot(), path = "C:/Users/luana/OneDrive/Documentos/Monografia/" )
-
-
-
-# checando
-soma_coluna = dados_todos %>% filter(yearq == "2019_1")
-xxx = soma_coluna$ufuf + soma_coluna$ufui + soma_coluna$ufd + soma_coluna$uff
-yyy = soma_coluna$uiuf + soma_coluna$uiui + soma_coluna$uid + soma_coluna$uif
-www = soma_coluna$duf + soma_coluna$dui + soma_coluna$dd + soma_coluna$df
-zzz = soma_coluna$fuf + soma_coluna$fui + soma_coluna$fd + soma_coluna$ff
-
-
-
-
 

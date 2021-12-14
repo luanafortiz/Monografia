@@ -8,7 +8,7 @@ geradora_magica_matriz_transicao_informalidade = function(ano, tri0, tri1, paine
   trimestres = painel78 %>% dplyr::filter(Ano == ano & (Trimestre == tri0 | Trimestre == tri1)) 
   
   # filtros de caracteristicas que queremos (mulheres, homens, raça e educação)
-  trimestres = trimestres %>% filter(V2007 == 1) # 2= mulheres, 1= homens
+  trimestres = trimestres %>% filter(V2007 == 2, VD2002 == 6) # 2= mulheres, 1= homens   # 6 = mãe, pai, madrasta ou padrasto
   
   #criar coluna de contribuinte nos casos de ocupação com 2 possibilidades
   trimestres = trimestres %>%  mutate(contribuinte = ifelse((VD4009 == 8 | VD4009 == 9) & VD4012 == 1, 1, (ifelse((VD4009 == 8 | VD4009 == 9) & VD4012 == 2, 2, 0))))
@@ -180,7 +180,7 @@ geradora_magica_matriz_transicao_informalidade = function(ano, tri0, tri1, paine
               fd = mean(fd, na.rm = T)) %>% 
     mutate(quarter = tri1, year = ano) 
   
-  write.csv(resultados, file = paste0("input/transicao_csv/homens/transicao_", ano, "_", tri1, ".csv"))
+  write.csv(resultados, file = paste0("input/transicao_csv/mulheres_maes/transicao_", ano, "_", tri1, ".csv"))
 }
 
 
@@ -193,7 +193,7 @@ geradora_magica_matriz_transicao_informalidade_anos = function(ano0, ano1, tri0,
   trimestres = bind_rows(trimestres1, trimestres2)
   
   # filtros de caracteristicas que queremos (mulheres, homens, raça e educação)
-  trimestres = trimestres %>% filter(V2007 == 1) # 2= mulheres, 1= homens
+  trimestres = trimestres %>% filter(V2007 == 2, VD2002 == 6) # 2= mulheres, 1= homens
   
   #criar coluna de contribuinte nos casos de ocupação com 2 possibilidades
   trimestres = trimestres %>%  mutate(contribuinte = ifelse((VD4009 == 8 | VD4009 == 9) & VD4012 == 1, 1, (ifelse((VD4009 == 8 | VD4009 == 9) & VD4012 == 2, 2, 0))))
@@ -365,5 +365,5 @@ geradora_magica_matriz_transicao_informalidade_anos = function(ano0, ano1, tri0,
               fd = mean(fd, na.rm = T)) %>% 
     mutate(quarter = tri1, year = ano1) 
   
-  write.csv(resultados, file = paste0("input/transicao_csv/homens/transicao_", ano1, "_", tri1, ".csv"))
+  write.csv(resultados, file = paste0("input/transicao_csv/mulheres_maes/transicao_", ano1, "_", tri1, ".csv"))
 }
