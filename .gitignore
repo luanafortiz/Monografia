@@ -21,3 +21,5 @@ input/transicao_csv/transicao_2019_1.csv
 .RData
 output/transicao_2019_1.csv
 .RData
+.RData
+*.csv
